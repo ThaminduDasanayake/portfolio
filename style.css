@@ -226,11 +226,6 @@ span {
   transform: scale(1.02);
 }
 
-.skills-box i {
-  font-size: 7rem;
-  color: var(--main-color);
-}
-
 .skills-box img {
   width: auto;
   height: 5vw;
