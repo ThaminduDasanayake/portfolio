@@ -4,7 +4,7 @@
 
 **High-performance personal portfolio showcasing modern UI/UX, advanced 3D interactions, and clean code architecture.**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-success?style=for-the-badge&logo=vercel)](https://github.com/ThaminduDasanayake/portfolio)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-View_Site-success?style=for-the-badge&logo=vercel)](https://thamindu-dasanayake.vercel.app/)
 
 <img src="https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=React&logoColor=black"  alt="React"/>
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
