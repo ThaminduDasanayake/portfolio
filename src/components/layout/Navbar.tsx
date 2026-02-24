@@ -78,8 +78,8 @@ export function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between max-w-7xl">
         <div className="flex items-center gap-2">
           <a
-            href="#"
-            onClick={(e) => handleScrollTo(e, '#hero')}
+            href="#about"
+            onClick={(e) => handleScrollTo(e, '#about')}
             className="flex items-center gap-2"
           >
             <div className="bg-primary text-primary-foreground p-1 rounded-md">

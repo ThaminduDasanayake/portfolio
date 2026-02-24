@@ -15,7 +15,7 @@ export function About() {
       <div className="container px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px] items-center">
           <div ref={imageRef} className="flex items-center justify-center">
-            <div className="relative aspect-square w-[300px] sm:w-[400px] overflow-hidden rounded-full border-4 border-muted bg-muted/20">
+            <div className="relative aspect-square w-75 sm:w-100 overflow-hidden rounded-full border-4 border-muted bg-muted/20">
               <div className="flex h-full w-full items-center justify-center bg-muted text-muted-foreground">
                 <img
                   alt="Profile"
@@ -26,12 +26,15 @@ export function About() {
             </div>
           </div>
 
-          <div ref={textRef} className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+          <div
+            ref={textRef}
+            className="flex flex-col items-center space-y-4 lg:items-start"
+          >
+            <div className="space-y-4 text-center lg:text-start">
+              <h1 className="text-2xl min-[400px]:text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none lg:whitespace-nowrap">
                 <span className="text-primary">Thamindu Dasanayake</span>
               </h1>
-              <p className="max-w-[600px] text-muted-foreground md:text-xl">
+              <p className="text-muted-foreground text-xs md:text-sm lg:text-xl">
                 I am a software engineer dedicated to building robust,
                 end-to-end applications. Driven by curiosity and consistent
                 effort, I treat every project as an opportunity to engineer
@@ -39,10 +42,10 @@ export function About() {
               </p>
             </div>
 
-            <div className="flex flex-col gap-2 min-[400px]:flex-row pb-6">
+            <div className="flex flex-col justify-center lg:justify-start items-center gap-2 min-[400px]:flex-row pb-6">
               <Button size="lg" variant="outline" asChild>
                 <a href="#projects" className="btn group">
-                  <div className="btn-bg bg-primary" />
+                  <div className="bg-circle bg-primary" />
 
                   <span className="btn-text group-hover:text-primary">
                     View Projects
@@ -54,7 +57,7 @@ export function About() {
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <a href="#contact" className="btn group">
-                  <div className="btn-bg bg-secondary" />
+                  <div className="bg-circle bg-secondary" />
                   <span className="btn-text group-hover:text-secondary">
                     Contact Me
                   </span>

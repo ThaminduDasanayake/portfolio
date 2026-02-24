@@ -22,17 +22,17 @@ export function Contact() {
 
   return (
     <section id="contact" className="py-20 w-full">
-      <div className="grid grid-cols-1 xl:grid-cols-5 gap-12 items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
         <div
           ref={leftRef}
-          className="bg-[#cd7c2e] w-full h-[400px] lg:h-auto hover:cursor-grab rounded-3xl overflow-hidden xl:col-span-3"
+          className="bg-[#cd7c2e] w-full h-100 lg:h-auto hover:cursor-grab rounded-3xl overflow-hidden lg:col-span-3"
         >
           <ContactExperience />
         </div>
 
         <div
           ref={rightRef}
-          className="flex flex-col space-y-6 justify-center xl:col-span-2"
+          className="flex flex-col space-y-6 justify-center lg:col-span-2"
         >
           <div className="space-y-6">
             <div className="space-y-4">
@@ -96,7 +96,7 @@ export function Contact() {
                   <Textarea
                     id="message"
                     placeholder="How can I help you?"
-                    className="min-h-[100px]"
+                    className="min-h-25"
                   />
                 </div>
                 <Button type="submit" className="w-full">

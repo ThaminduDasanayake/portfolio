@@ -7,13 +7,13 @@
 }
 
 html {
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
   background-color: var(--background);
 }
@@ -204,15 +204,15 @@ body {
 
 @layer components {
   .btn {
-    @apply px-4 py-4 rounded-lg relative overflow-hidden w-[180px];
+    @apply px-4 py-4 rounded-lg relative overflow-hidden w-44;
   }
 
-  .btn-bg {
+  .bg-circle {
     @apply absolute -right-10 top-1/2 -translate-y-1/2 w-[150%] h-[150%] group-hover:size-8 group-hover:right-2 rounded-full transition-all duration-500;
   }
 
   .btn-text {
-    @apply text-background transition-all duration-500  group-hover:-translate-x-5 xl:translate-x-0 -translate-x-5;
+    @apply text-background transition-all duration-500 group-hover:-translate-x-5 lg:translate-x-0 -translate-x-5;
   }
 
   .btn-icon-wrapper {
@@ -220,6 +220,6 @@ body {
   }
 
   .btn-icon {
-    @apply h-4 w-4 xl:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
+    @apply h-4 w-4 lg:-translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
   }
 }

@@ -2,7 +2,7 @@ import { socialLinks } from '@/constants'
 
 const Socials = ({ isFooter }: { isFooter?: boolean }) => {
   return (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className="flex flex-wrap justify-center lg:justify-start items-center gap-2 md:gap-4">
       {socialLinks.map((link) => {
         const isMail = link.name === 'Mail'
 
@@ -13,7 +13,7 @@ const Socials = ({ isFooter }: { isFooter?: boolean }) => {
             target={isMail ? undefined : '_blank'}
             rel={isMail ? undefined : 'noopener noreferrer'}
             aria-label={link.name}
-            className="group flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary/10 hover:shadow-md"
+            className="group relative flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:bg-primary/10 hover:shadow-md"
           >
             <span
               className={`pointer-events-none absolute left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-secondary px-2.5 py-1 text-xs text-background opacity-0 shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:opacity-100 ${isFooter ? '-top-8' : 'top-15'}`}
