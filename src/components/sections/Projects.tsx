@@ -38,9 +38,7 @@ function ProjectCard({
         <img src={image} alt={title} className={`h-auto w-full object-cover`} />
         <CardHeader>
           <CardTitle>{title}</CardTitle>
-          <CardDescription className="line-clamp-2">
-            {description}
-          </CardDescription>
+          <CardDescription>{description}</CardDescription>
         </CardHeader>
         <CardContent className="flex-1">
           <div className="flex flex-wrap gap-2">
