@@ -147,7 +147,7 @@ export const projects = [
     id: 1,
     title: 'MacBook Landing Page',
     description:
-      'A stunning landing page for the MacBook, featuring a sleek design and smooth animations.',
+      "An immersive product landing page that replicates Apple's premium design language. Features complex scroll-triggered GSAP animations, interactive 3D-like scrolling sequences, and a fully responsive, type-safe React architecture.",
     tags: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
     demoUrl: 'https://gsap-mac-book-landing.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/GSAP_MacBook_landing',
@@ -156,7 +156,8 @@ export const projects = [
   {
     id: 2,
     title: 'Stock Tracker App',
-    description: 'A stock tracking app',
+    description:
+      'A full-stack financial monitoring application that tracks asset fluctuations and market trends. Features automated background data fetching via Inngest, persistent data storage with MongoDB, and real-time email alert notifications.',
     tags: ['Next.js', 'Inngest', 'Nodemailer', 'MongoDB'],
     demoUrl: 'https://stock-tracker-app-signalist.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/stock-tracker-app',
@@ -165,7 +166,8 @@ export const projects = [
   {
     id: 3,
     title: 'Opaline Bar',
-    description: 'A GSAP animation website',
+    description:
+      'A premium hospitality web experience crafted for a high-end cocktail bar. Features a cinematic user interface, seamless page transitions, and intricate staggered scroll-reveal animations powered by GSAP.',
     tags: ['React', 'Vite.js', 'GSAP', 'Tailwind CSS'],
     demoUrl: 'https://opaline-cocktail-bar.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/cocktails',
