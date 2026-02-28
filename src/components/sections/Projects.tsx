@@ -55,7 +55,12 @@ function ProjectCard({
             className="w-full bg-foreground hover:bg-foreground/85"
             asChild
           >
-            <a href={repoUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View source code for ${title}`}
+            >
               <img
                 src="/github.svg"
                 alt="Github"
@@ -65,7 +70,12 @@ function ProjectCard({
             </a>
           </Button>
           <Button size="sm" className="w-full" asChild>
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit live demo for ${title}`}
+            >
               <ExternalLink className="mr-2 h-4 w-4" />
               Visit
             </a>

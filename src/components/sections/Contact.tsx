@@ -5,8 +5,10 @@ import { Textarea } from '@/components/ui/textarea'
 import { EMAIL } from '@/constants'
 import { useScrollReveal } from '@/hooks/useGsapAnimation'
 import { Check, Copy, Mail } from 'lucide-react'
-import { useState } from 'react'
-import ContactExperience from '../models/ContactExperience'
+import React, { Suspense, useState } from 'react'
+const ContactExperience = React.lazy(
+  () => import('../models/ContactExperience')
+)
 
 export function Contact() {
   const [copied, setCopied] = useState(false)
@@ -27,7 +29,15 @@ export function Contact() {
           ref={leftRef}
           className="bg-[#cd7c2e] w-full h-100 lg:h-auto hover:cursor-grab rounded-3xl overflow-hidden lg:col-span-3"
         >
-          <ContactExperience />
+          <Suspense
+            fallback={
+              <div className="flex h-[300px] items-center justify-center text-muted-foreground">
+                Loading 3D Environment...
+              </div>
+            }
+          >
+            <ContactExperience />
+          </Suspense>
         </div>
 
         <div

@@ -151,7 +151,7 @@ export const projects = [
     tags: ['React', 'TypeScript', 'GSAP', 'Tailwind CSS'],
     demoUrl: 'https://gsap-mac-book-landing.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/GSAP_MacBook_landing',
-    image: '/projects/macbook-landing.png',
+    image: '/projects/macbook-landing.webp',
   },
   {
     id: 2,
@@ -161,7 +161,7 @@ export const projects = [
     tags: ['Next.js', 'Inngest', 'Nodemailer', 'MongoDB'],
     demoUrl: 'https://stock-tracker-app-signalist.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/stock-tracker-app',
-    image: '/projects/stock-app.png',
+    image: '/projects/stock-app.webp',
   },
   {
     id: 3,
@@ -171,7 +171,7 @@ export const projects = [
     tags: ['React', 'Vite.js', 'GSAP', 'Tailwind CSS'],
     demoUrl: 'https://opaline-cocktail-bar.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/cocktails',
-    image: '/projects/opaline-bar.png',
+    image: '/projects/opaline-bar.webp',
   },
   {
     id: 4,
@@ -181,7 +181,7 @@ export const projects = [
     tags: ['React Router', 'TypeScript', 'Puter.js', 'Tailwind CSS'],
     demoUrl: 'https://roomify-2.vercel.app',
     repoUrl: 'https://github.com/ThaminduDasanayake/roomify',
-    image: '/projects/roomify.png',
+    image: '/projects/roomify.webp',
   },
 ]
 

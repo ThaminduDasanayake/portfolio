@@ -20,7 +20,8 @@ export function About() {
                 <img
                   alt="Profile"
                   className="h-full w-full object-cover"
-                  src="/pic.jpg"
+                  src="/pic.webp"
+                  fetchPriority="high"
                 />
               </div>
             </div>
