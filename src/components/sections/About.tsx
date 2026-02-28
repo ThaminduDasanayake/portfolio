@@ -22,6 +22,8 @@ export function About() {
                   className="h-full w-full object-cover"
                   src="/pic.webp"
                   fetchPriority="high"
+                  width="800"
+                  height="800"
                 />
               </div>
             </div>

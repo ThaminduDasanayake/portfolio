@@ -35,7 +35,13 @@ function ProjectCard({
   return (
     <div ref={ref}>
       <Card className="h-full flex flex-col overflow-hidden hover:border-primary/50 transition-colors">
-        <img src={image} alt={title} className={`h-auto w-full object-cover`} />
+        <img
+          src={image}
+          alt={title}
+          className={`h-auto w-full object-cover`}
+          width="3024"
+          height="1898"
+        />
         <CardHeader>
           <CardTitle>{title}</CardTitle>
           <CardDescription>{description}</CardDescription>
