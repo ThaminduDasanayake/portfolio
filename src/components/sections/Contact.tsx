@@ -5,13 +5,34 @@ import { Textarea } from '@/components/ui/textarea'
 import { EMAIL } from '@/constants'
 import { useScrollReveal } from '@/hooks/useGsapAnimation'
 import { Check, Copy, Mail } from 'lucide-react'
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 const ContactExperience = React.lazy(
   () => import('../models/ContactExperience')
 )
 
 export function Contact() {
   const [copied, setCopied] = useState(false)
+  const [load3D, setLoad3D] = useState(false)
+
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoad3D(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(EMAIL)
@@ -26,18 +47,27 @@ export function Contact() {
     <section id="contact" className="py-20 w-full">
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-stretch">
         <div
-          ref={leftRef}
+          ref={(node) => {
+            leftRef.current = node
+            containerRef.current = node
+          }}
           className="bg-[#cd7c2e] w-full h-100 lg:h-auto hover:cursor-grab rounded-3xl overflow-hidden lg:col-span-3"
         >
-          <Suspense
-            fallback={
-              <div className="flex h-[300px] items-center justify-center text-muted-foreground">
-                Loading 3D Environment...
-              </div>
-            }
-          >
-            <ContactExperience />
-          </Suspense>
+          {load3D ? (
+            <Suspense
+              fallback={
+                <div className="flex h-[300px] items-center justify-center text-muted-foreground">
+                  Loading 3D Environment...
+                </div>
+              }
+            >
+              <ContactExperience />
+            </Suspense>
+          ) : (
+            <div className="flex h-[300px] items-center justify-center text-muted-foreground">
+              Waiting to load 3D...
+            </div>
+          )}
         </div>
 
         <div
