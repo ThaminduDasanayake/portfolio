@@ -79,6 +79,7 @@ export const experiences = [
 
 export const skills = [
   {
+    id: 1,
     title: 'Languages',
     icon: Code2,
     span: 'md:col-span-1 md:row-span-2',
@@ -93,6 +94,7 @@ export const skills = [
     ],
   },
   {
+    id: 2,
     title: 'Frontend & UI',
     icon: Monitor,
     span: 'md:col-span-2 md:row-span-1',
@@ -107,6 +109,7 @@ export const skills = [
     ],
   },
   {
+    id: 3,
     title: 'DevOps & Tools',
     icon: Wrench,
     span: 'md:col-span-1 md:row-span-2',
@@ -121,6 +124,7 @@ export const skills = [
     ],
   },
   {
+    id: 4,
     title: 'Backend',
     icon: Server,
     span: 'md:col-span-1 md:row-span-1',
@@ -130,6 +134,7 @@ export const skills = [
     ],
   },
   {
+    id: 5,
     title: 'Database & Cloud',
     icon: Database,
     span: 'md:col-span-1 md:row-span-1',

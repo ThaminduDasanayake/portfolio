@@ -1,6 +1,6 @@
 import Socials from '../ui/socials'
 
-export function Footer() {
+const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
@@ -15,3 +15,5 @@ export function Footer() {
     </footer>
   )
 }
+
+export default Footer

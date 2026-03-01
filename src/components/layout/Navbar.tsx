@@ -20,7 +20,7 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ]
 
-export function Navbar() {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
@@ -157,3 +157,5 @@ export function Navbar() {
     </header>
   )
 }
+
+export default Navbar
