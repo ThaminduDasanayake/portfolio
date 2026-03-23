@@ -188,6 +188,157 @@ export const projects = [
     repoUrl: 'https://github.com/ThaminduDasanayake/roomify',
     image: '/projects/roomify.webp',
   },
+  {
+    id: 5,
+    title: 'T-AutoNLP',
+    description:
+      'A research-grade hybrid AutoML system for NLP that combines a Genetic Algorithm with Bayesian Optimisation to simultaneously optimise predictive performance, computational efficiency, and model interpretability across a Pareto front of non-dominated solutions.',
+    tags: ['Python', 'DEAP', 'scikit-optimize', 'Streamlit'],
+    demoUrl: 'https://hybrid-multiobjective-autonlp.vercel.app',
+    repoUrl:
+      'https://github.com/ThaminduDasanayake/hybrid-multiobjective-autonlp',
+    image: '/projects/autonlp.webp',
+  },
+  {
+    id: 6,
+    title: 'Classroom',
+    description:
+      'A full-stack e-learning platform with a decoupled TypeScript architecture. Features course management, student enrolment, and a RESTful backend API, with the frontend and backend maintained as independent deployable services.',
+    tags: ['TypeScript', 'React', 'Node.js', 'REST API'],
+    demoUrl: 'https://classroom-frontend-green.vercel.app',
+    repoUrl: 'https://github.com/ThaminduDasanayake/classroom-frontend',
+    image: '/projects/classroom.webp',
+  },
+  {
+    id: 7,
+    title: 'CoinPulse',
+    description:
+      'A cryptocurrency market dashboard delivering live price data, historical trend charts, and portfolio tracking. Built with TypeScript for end-to-end type safety and integrates a public crypto market API for real-time data feeds.',
+    tags: ['TypeScript', 'React', 'CoinGecko API', 'Tailwind CSS'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/coinpulse',
+    image: '/projects/coinpulse.webp',
+  },
+  {
+    id: 8,
+    title: 'Game Hub',
+    description:
+      'A video game discovery platform that aggregates titles from the RAWG API, with genre and platform filtering, dynamic search, and a fully responsive dark-mode UI. Deployed on Vercel with optimised client-side data fetching.',
+    tags: ['TypeScript', 'React', 'RAWG API', 'Chakra UI'],
+    demoUrl: 'https://game-hub-thamindu.vercel.app',
+    repoUrl: 'https://github.com/ThaminduDasanayake/game-hub',
+    image: '/projects/game-hub.webp',
+  },
+  {
+    id: 9,
+    title: 'LangChain PDF Chat',
+    description:
+      'A retrieval-augmented generation (RAG) application that lets users upload PDF documents and query them in natural language. Uses LangChain for orchestration, a vector store for semantic search, and an LLM backend for context-aware responses.',
+    tags: ['Python', 'LangChain', 'RAG', 'Streamlit'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/langchain-pdf-chat',
+    image: '/projects/pdf-chat.webp',
+  },
+  {
+    id: 10,
+    title: 'LangGraph Chatbot',
+    description:
+      'A stateful, multi-turn conversational agent built with LangGraph. Implements a graph-based execution flow for managing complex dialogue state, tool calling, and conditional branching within an LLM-powered chat interface.',
+    tags: ['Python', 'LangGraph', 'LangChain', 'OpenAI'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/LangGraph-Chatbot',
+    image: '/projects/langgraph.webp',
+  },
+  {
+    id: 11,
+    title: 'Local AI Agent with RAG',
+    description:
+      'A fully local AI agent that combines a locally-hosted LLM with a retrieval-augmented generation pipeline. Runs entirely offline using Ollama, enabling private document querying and agentic tool use without external API dependencies.',
+    tags: ['Python', 'Ollama', 'LangChain', 'RAG'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/Local-AI-Agent-with-RAG',
+    image: '/projects/local-ai.webp',
+  },
+  {
+    id: 12,
+    title: 'macOS Portfolio',
+    description:
+      'An interactive developer portfolio simulating the macOS desktop experience in the browser. Features draggable windows, a functional dock, app-like project showcases, and fluid system animations — all built in vanilla JavaScript.',
+    tags: ['JavaScript', 'CSS', 'HTML', 'GSAP'],
+    demoUrl: 'https://mac-os-portfolio-thamindu.vercel.app',
+    repoUrl: 'https://github.com/ThaminduDasanayake/MacOS_Portfolio',
+    image: '/projects/macos-portfolio.webp',
+  },
+  {
+    id: 13,
+    title: 'Nike E-Commerce',
+    description:
+      'A feature-rich e-commerce storefront for athletic footwear, built with TypeScript and React. Includes a product catalogue with filtering, a persistent shopping cart, and a polished checkout UI — demonstrating end-to-end frontend commerce patterns.',
+    tags: ['TypeScript', 'React', 'Tailwind CSS', 'Redux'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/nike-ecommerce',
+    image: '/projects/nike.webp',
+  },
+  {
+    id: 14,
+    title: 'Startup Directory',
+    description:
+      'A community-driven platform for discovering and submitting startups, built with Next.js App Router and TypeScript. Features server-side rendering, Sanity CMS for content management, and GitHub OAuth authentication.',
+    tags: ['Next.js', 'TypeScript', 'Sanity CMS', 'Auth.js'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/startup-directory',
+    image: '/projects/startup-directory.webp',
+  },
+  {
+    id: 15,
+    title: 'Twitter Sentiment Analysis',
+    description:
+      'A machine learning pipeline for classifying the sentiment of tweets as positive, negative, or neutral. Implements text preprocessing, TF-IDF vectorisation, and compares multiple classification models including Naive Bayes and Logistic Regression.',
+    tags: ['Python', 'scikit-learn', 'NLTK', 'Jupyter'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/Twitter-Sentiment-Analysis',
+    image: '/projects/sentiment.webp',
+  },
+  {
+    id: 17,
+    title: 'Coding Challenge Generator',
+    description:
+      'A CLI tool that generates personalised coding challenges on demand using an LLM backend. Accepts a topic and difficulty level, then returns a structured problem statement with test cases — useful for daily practice and interview prep.',
+    tags: ['Python', 'LangChain', 'OpenAI', 'CLI'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/Coding-Challenge-Generator',
+    image: '/projects/challenge-gen.webp',
+  },
+  {
+    id: 18,
+    title: 'Custom MCP Server',
+    description:
+      'A custom Model Context Protocol server exposing domain-specific tools for LLM agents. Implements the MCP specification in Python, enabling Claude and other MCP-compatible clients to invoke custom functions as structured tool calls.',
+    tags: ['Python', 'MCP', 'Claude API', 'FastAPI'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/Custom-MCP-Server',
+    image: '/projects/mcp-server.webp',
+  },
+  {
+    id: 19,
+    title: 'WeatherApp (iOS)',
+    description:
+      'A native iOS weather application built in Swift. Fetches live weather data from a public API and presents current conditions and a multi-day forecast with a clean, SwiftUI-native interface.',
+    tags: ['Swift', 'SwiftUI', 'WeatherKit', 'iOS'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/WeatherApp',
+    image: '/projects/weather-ios.webp',
+  },
+  {
+    id: 20,
+    title: 'Promptopia',
+    description:
+      'A full-stack AI prompt sharing platform where users can discover, create, and share prompts for large language models. Built with Next.js and MongoDB, featuring Google OAuth authentication and a tag-based search system.',
+    tags: ['Next.js', 'MongoDB', 'NextAuth.js', 'Tailwind CSS'],
+    demoUrl: '',
+    repoUrl: 'https://github.com/ThaminduDasanayake/promptopia',
+    image: '/projects/promptopia.webp',
+  },
 ]
 
 export const education = [
