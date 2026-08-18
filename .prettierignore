@@ -1,4 +1,10 @@
-dist
-.vite
+.next
 node_modules
-coverage
+out
+build
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+*.tsbuildinfo
+.idea
+.DS_Store
