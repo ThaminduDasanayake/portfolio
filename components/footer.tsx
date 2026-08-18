@@ -28,23 +28,22 @@ export function Footer() {
     <footer id="contact" className="p-8 gap-11 border-t">
       <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
         <div className="md:col-span-3">
-          <p className="leading-[1.2em]">
+          <p>
             Interested to work with me?
             <br />
             {PERSONAL_INFO.email.toUpperCase()}
           </p>
         </div>
 
-        {/* Center: Social Links */}
         <div className="md:col-span-1 space-y-3">
-          <div className="flex flex-col flex-start space-y-2">
+          <div className="flex flex-col items-start space-y-2">
             {SOCIAL_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-foreground text-muted-foreground transition-colors"
+                className="w-fit hover:text-foreground text-muted-foreground transition-colors"
               >
                 {link.name}
               </a>
@@ -52,7 +51,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Right: Live Digital Clock & Timezone */}
         <div className="md:col-span-2 space-y-3 md:text-right">
           <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
             Local Time (Asia/Colombo)

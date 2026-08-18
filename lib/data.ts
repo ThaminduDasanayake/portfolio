@@ -56,7 +56,7 @@ export const SELECTED_PROJECTS: Project[] = [
     type: "image",
   },
   {
-    title: "MacBook Landing Page & H23",
+    title: "MacBook Landing Page",
     year: "2024",
     category: "Creative Dev & Animation",
     description:

@@ -1,47 +1,43 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { List, X } from "@phosphor-icons/react"
-import { PERSONAL_INFO } from "@/lib/data"
+import { ListIcon, XIcon } from "@phosphor-icons/react";
+import { PERSONAL_INFO } from "@/lib/data";
+import Link from "next/link";
+import { useState } from "react";
 
 interface NavbarProps {
-  onOpenArchive: () => void
+  onOpenArchive: () => void;
 }
 
 export function Navbar({ onOpenArchive }: NavbarProps) {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md transition-colors">
-      <div className="mx-auto flex h-16 max-w-[1440px] 2xl:max-w-[1560px] items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Left: Brand Name */}
-        <a
-          href="#home"
-          className="font-mono text-sm font-bold tracking-widest text-foreground hover:opacity-80 transition-opacity"
-        >
+      <div className="mx-auto flex items-center justify-between p-6 sm:p-8">
+        <Link href="#home" className="text-xl">
           {PERSONAL_INFO.brand}
-        </a>
+        </Link>
 
-        {/* Center/Right: Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 font-mono text-xs font-semibold tracking-wider text-muted-foreground">
-          <a
+        <nav className="hidden md:flex items-center gap-8">
+          <Link
             href="#home"
             className="hover:text-foreground transition-colors uppercase"
           >
             HOME
-          </a>
-          <a
+          </Link>
+          <Link
             href="#works"
             className="hover:text-foreground transition-colors uppercase"
           >
             WORKS
-          </a>
-          <a
+          </Link>
+          <Link
             href="#experience"
             className="hover:text-foreground transition-colors uppercase"
           >
             EXPERIENCE
-          </a>
+          </Link>
           <button
             type="button"
             onClick={onOpenArchive}
@@ -49,15 +45,14 @@ export function Navbar({ onOpenArchive }: NavbarProps) {
           >
             ARCHIVE
           </button>
-          <a
+          <Link
             href="#contact"
             className="hover:text-foreground transition-colors uppercase"
           >
             CONTACT
-          </a>
+          </Link>
         </nav>
 
-        {/* Right: Mobile Menu Toggle */}
         <div className="flex items-center">
           <button
             type="button"
@@ -65,7 +60,7 @@ export function Navbar({ onOpenArchive }: NavbarProps) {
             className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground hover:bg-muted"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X size={20} /> : <List size={20} />}
+            {mobileMenuOpen ? <XIcon size={20} /> : <ListIcon size={20} />}
           </button>
         </div>
       </div>
@@ -73,46 +68,46 @@ export function Navbar({ onOpenArchive }: NavbarProps) {
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div className="md:hidden border-b border-border bg-background/95 backdrop-blur-lg px-4 pt-3 pb-6 space-y-4 font-mono text-xs font-medium tracking-wider text-muted-foreground">
-          <a
+          <Link
             href="#home"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-foreground hover:text-primary transition-colors uppercase"
           >
             HOME
-          </a>
-          <a
+          </Link>
+          <Link
             href="#works"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-foreground hover:text-primary transition-colors uppercase"
           >
             WORKS
-          </a>
-          <a
+          </Link>
+          <Link
             href="#experience"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-foreground hover:text-primary transition-colors uppercase"
           >
             EXPERIENCE
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => {
-              setMobileMenuOpen(false)
-              onOpenArchive()
+              setMobileMenuOpen(false);
+              onOpenArchive();
             }}
             className="block w-full text-left py-2 text-foreground hover:text-primary transition-colors uppercase cursor-pointer"
           >
             ARCHIVE
           </button>
-          <a
+          <Link
             href="#contact"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-2 text-foreground hover:text-primary transition-colors uppercase"
           >
             CONTACT
-          </a>
+          </Link>
         </div>
       )}
     </header>
-  )
+  );
 }
