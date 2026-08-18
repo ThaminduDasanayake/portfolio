@@ -52,13 +52,13 @@ export function Footer() {
         </div>
 
         <div className="space-y-3 md:col-span-2 md:text-right">
-          <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
+          <p className="font-mono text-xs font-semibold tracking-wide uppercase">
             Local Time (Asia/Colombo)
           </p>
-          <div className="text-foreground font-mono text-base font-bold tracking-wider tabular-nums sm:text-lg">
+          <div className="text-foreground font-mono text-base font-bold tracking-wide tabular-nums sm:text-lg">
             {timeStr || "12:00:00 AM"}
           </div>
-          <p className="text-muted-foreground font-mono text-[11px]">
+          <p className="text-muted-foreground font-mono text-xs">
             © {new Date().getFullYear()} {PERSONAL_INFO.name}
           </p>
         </div>

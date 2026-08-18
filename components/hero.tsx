@@ -12,12 +12,9 @@ export function Hero() {
           </h1>
         </div>
 
-        {/* Dual Showcase Cards (Bento Row matching Image 1 & 2) */}
         <div className="mb-16 grid grid-cols-1 gap-6 px-8 sm:mb-24 sm:gap-8 md:grid-cols-2">
-          {/* Card 1 (Left): Light aesthetic interactive UI widgets showcase */}
           <div className="border-border relative flex aspect-16/11 items-center justify-center overflow-hidden rounded-3xl border bg-[#e4e6eb] p-4 text-neutral-900 shadow-xl transition-transform duration-500 hover:scale-[1.01] sm:aspect-16/10 sm:p-8 dark:bg-[#ebecef]"></div>
 
-          {/* Card 2 (Right): Dark device mockup showcasing dark UI widgets */}
           <div className="border-border relative flex aspect-16/11 items-center justify-center overflow-hidden rounded-3xl border bg-[#0d0e12] p-4 text-white shadow-xl transition-transform duration-500 hover:scale-[1.01] sm:aspect-16/10 sm:p-6"></div>
         </div>
 
