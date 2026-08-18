@@ -1,5 +1,4 @@
 export interface Project {
-  id: number;
   title: string;
   year: string;
   category: string;
@@ -34,10 +33,6 @@ export const PERSONAL_INFO = {
   email: "thamindudasanayake@gmail.com",
   roleTitle: "SOFTWARE ENGINEER",
   roleSubtitle: "FULL STACK & AI",
-  headline:
-    "Hi, I'm Thamindu, a software engineer who loves to experiment, architect resilient systems, and build intuitive digital products.",
-  editorialBio:
-    "Software Engineer specializing in full-stack architecture with Next.js, TypeScript, React, Node.js, and Generative AI pipelines. Passionate about high-performance web systems, distributed backends, and pixel-level craft.",
 };
 
 export const SOCIAL_LINKS = [
@@ -49,44 +44,6 @@ export const SOCIAL_LINKS = [
 
 export const SELECTED_PROJECTS: Project[] = [
   {
-    id: 1,
-    title: "N1 widgets",
-    year: "2024",
-    category: "Branding UI/UX",
-    description:
-      "Interactive system dashboard featuring minimal dial gauges, dynamic city weather widgets, and micro-motion interfaces.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "UI/UX"],
-    demoUrl: "https://gsap-mac-book-landing.vercel.app",
-    repoUrl: "https://github.com/ThaminduDasanayake",
-    type: "interactive-widget",
-  },
-  {
-    id: 2,
-    title: "H23",
-    year: "2024",
-    category: "Branding & Motion",
-    description:
-      "Immersive hardware product web experience with custom pixel-art display rendering, 3D scroll kinematics, and interactive lighting.",
-    tags: ["React", "TypeScript", "GSAP", "Tailwind CSS"],
-    demoUrl: "https://gsap-mac-book-landing.vercel.app",
-    repoUrl: "https://github.com/ThaminduDasanayake/GSAP_MacBook_landing",
-    image: "/projects/macbook-landing.webp",
-    type: "macbook",
-  },
-  {
-    id: 3,
-    title: "Glod Water",
-    year: "2024",
-    category: "Branding & 3D",
-    description:
-      "Minimalist aluminum drink can series with pixel-matrix typographic identities, real-time lighting shaders, and generative textures.",
-    tags: ["3D Design", "WebGL", "Creative Dev", "Tailwind CSS"],
-    demoUrl: "https://opaline-cocktail-bar.vercel.app",
-    repoUrl: "https://github.com/ThaminduDasanayake/cocktails",
-    type: "glodwater",
-  },
-  {
-    id: 4,
     title: "Stock Tracker SaaS (Signalist)",
     year: "2025",
     category: "Full-Stack SaaS",
@@ -99,7 +56,18 @@ export const SELECTED_PROJECTS: Project[] = [
     type: "image",
   },
   {
-    id: 5,
+    title: "MacBook Landing Page & H23",
+    year: "2024",
+    category: "Creative Dev & Animation",
+    description:
+      "High-performance interactive 3D/GSAP landing experience showcasing MacBook hardware aesthetics and precision typography.",
+    tags: ["React", "TypeScript", "GSAP", "Tailwind CSS"],
+    demoUrl: "https://gsap-mac-book-landing.vercel.app",
+    repoUrl: "https://github.com/ThaminduDasanayake/GSAP_MacBook_landing",
+    image: "/projects/macbook-landing.webp",
+    type: "image",
+  },
+  {
     title: "Roomify 3D Interior AI",
     year: "2024",
     category: "AI & Spatial Rendering",
@@ -112,7 +80,6 @@ export const SELECTED_PROJECTS: Project[] = [
     type: "image",
   },
   {
-    id: 6,
     title: "Opaline Cocktail Lounge",
     year: "2024",
     category: "Hospitality & Creative Motion",
