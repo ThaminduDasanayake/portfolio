@@ -1,15 +1,22 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { EXPERIENCE_MILESTONES } from "@/lib/data"
+import * as React from "react";
+import { EXPERIENCE_MILESTONES } from "@/lib/data";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 
 export function Experience() {
   return (
-    <section id="experience" className="py-20 sm:py-28 border-t border-border/60">
-      <div className="mx-auto max-w-[1440px] 2xl:max-w-[1560px] px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-16 px-8">
+      <div className="mx-auto">
         {/* Section Heading & Intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 sm:mb-16">
-          <div className="lg:col-span-4">
+        <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-12">
+          <div className="lg:col-span-2">
             <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
               Experiences
             </h2>
@@ -17,42 +24,36 @@ export function Experience() {
               Career Trajectory & Education
             </p>
           </div>
-          <div className="lg:col-span-8 text-muted-foreground text-sm sm:text-base leading-relaxed">
-            <p>
-              Proven track record engineering enterprise software solutions at
-              SLT Mobitel, building high-conversion client web applications,
-              and researching algorithmic optimization and distributed systems.
-            </p>
-          </div>
         </div>
 
-        {/* 4-Column Timeline Grid (Akio/Marya Editorial Layout) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-2">
           {EXPERIENCE_MILESTONES.map((item, index) => (
-            <div
+            <Card
               key={index}
-              className="flex flex-col space-y-3 p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-border/60 bg-card/40 hover:bg-card hover:border-border transition-all duration-300 shadow-sm"
+              className="flex flex-col justify-between p-6 sm:p-7 rounded-xl ring-0"
             >
-              <span className="font-mono text-xl sm:text-2xl font-bold text-foreground tracking-wider">
-                {item.year}
-              </span>
-              <div className="space-y-1">
-                <h3 className="font-semibold text-foreground text-base">
-                  {item.role}
-                </h3>
-                <p className="font-mono text-xs text-muted-foreground uppercase tracking-wide">
-                  {item.organization}
-                </p>
-              </div>
+              <CardHeader className="p-0 gap-3">
+                <span className="font-mono text-xl sm:text-2xl font-bold text-foreground tracking-wider">
+                  {item.year}
+                </span>
+                <div className="space-y-1">
+                  <CardTitle className="font-medium text-foreground text-base">
+                    {item.role}
+                  </CardTitle>
+                  <CardDescription className="font-mono text-xs text-muted-foreground uppercase tracking-wide">
+                    {item.organization}
+                  </CardDescription>
+                </div>
+              </CardHeader>
               {item.details && (
-                <p className="text-xs text-muted-foreground leading-relaxed pt-3 border-t border-border/40">
+                <CardContent className="p-0 pt-3 text-xs tracking-wide text-muted-foreground leading-relaxed">
                   {item.details}
-                </p>
+                </CardContent>
               )}
-            </div>
+            </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

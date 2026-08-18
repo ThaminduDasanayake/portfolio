@@ -1,82 +1,70 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { ArrowUpRight } from "@phosphor-icons/react"
-import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/data"
+import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/data";
+import { useEffect, useState } from "react";
 
 export function Footer() {
-  const [timeStr, setTimeStr] = React.useState<string>("")
+  const [timeStr, setTimeStr] = useState<string>("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     const updateTime = () => {
-      const now = new Date()
+      const now = new Date();
       const formatted = now.toLocaleTimeString("en-US", {
         timeZone: "Asia/Colombo",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
         hour12: true,
-      })
-      setTimeStr(formatted)
-    }
+      });
+      setTimeStr(formatted);
+    };
 
-    updateTime()
-    const timer = setInterval(updateTime, 1000)
-    return () => clearInterval(timer)
-  }, [])
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <footer id="contact" className="py-20 sm:py-28 border-t border-border/60">
-      <div className="mx-auto max-w-[1440px] 2xl:max-w-[1560px] px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 sm:gap-8 items-start">
-          {/* Left: Direct Email CTA */}
-          <div className="md:col-span-5 space-y-3">
-            <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
-              Interested to work with me?
-            </p>
-            <a
-              href={`mailto:${PERSONAL_INFO.email}`}
-              className="block font-heading text-xl sm:text-2xl lg:text-3xl font-bold tracking-tight text-foreground hover:opacity-75 transition-opacity underline underline-offset-4 break-all"
-            >
-              {PERSONAL_INFO.email.toUpperCase()}
-            </a>
-          </div>
+    <footer id="contact" className="p-8 gap-11 border-t">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+        <div className="md:col-span-3">
+          <p className="leading-[1.2em]">
+            Interested to work with me?
+            <br />
+            {PERSONAL_INFO.email.toUpperCase()}
+          </p>
+        </div>
 
-          {/* Center: Social Links */}
-          <div className="md:col-span-4 space-y-3">
-            <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
-              Network & Writing
-            </p>
-            <div className="flex flex-col space-y-2 font-mono text-xs sm:text-sm">
-              {SOCIAL_LINKS.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-foreground hover:text-muted-foreground transition-colors inline-flex items-center gap-1.5"
-                >
-                  <span>{link.name}</span>
-                  <ArrowUpRight size={12} className="text-muted-foreground" />
-                </a>
-              ))}
-            </div>
+        {/* Center: Social Links */}
+        <div className="md:col-span-1 space-y-3">
+          <div className="flex flex-col flex-start space-y-2">
+            {SOCIAL_LINKS.map((link) => (
+              <a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground text-muted-foreground transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
+        </div>
 
-          {/* Right: Live Digital Clock & Timezone */}
-          <div className="md:col-span-3 space-y-3 md:text-right">
-            <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
-              Local Time (Asia/Colombo)
-            </p>
-            <div className="font-mono text-base sm:text-lg font-bold text-foreground tracking-wider tabular-nums">
-              {timeStr || "12:00:00 AM"}
-            </div>
-            <p className="font-mono text-[11px] text-muted-foreground">
-              © {new Date().getFullYear()} {PERSONAL_INFO.name}
-            </p>
+        {/* Right: Live Digital Clock & Timezone */}
+        <div className="md:col-span-2 space-y-3 md:text-right">
+          <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
+            Local Time (Asia/Colombo)
+          </p>
+          <div className="font-mono text-base sm:text-lg font-bold text-foreground tracking-wider tabular-nums">
+            {timeStr || "12:00:00 AM"}
           </div>
+          <p className="font-mono text-[11px] text-muted-foreground">
+            © {new Date().getFullYear()} {PERSONAL_INFO.name}
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
