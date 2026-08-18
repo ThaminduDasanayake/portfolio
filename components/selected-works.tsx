@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import Image from "next/image";
 import { SELECTED_PROJECTS, ARCHIVE_PROJECTS } from "@/lib/data";
 

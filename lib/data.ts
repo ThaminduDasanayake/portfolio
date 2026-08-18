@@ -19,11 +19,6 @@ export interface ExperienceItem {
   bullets?: string[];
 }
 
-export interface CapabilityGroup {
-  category: string;
-  skills: string[];
-}
-
 export const PERSONAL_INFO = {
   name: "THAMINDU DASANAYAKE",
   nickname: "Thamindu",
@@ -95,8 +90,7 @@ export const SELECTED_PROJECTS: Project[] = [
 
 export const ARCHIVE_PROJECTS = [
   {
-    id: 1,
-    title: "Stock Tracker App (Signalist)",
+    title: "Signalist (Stock Tracker App)",
     year: "2025",
     category: "Full Stack SaaS",
     tags: ["Next.js", "Inngest", "MongoDB", "Nodemailer"],
@@ -104,8 +98,7 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/stock-tracker-app",
   },
   {
-    id: 2,
-    title: "MacBook Landing Page & H23",
+    title: "MacBook Landing Page",
     year: "2024",
     category: "Creative Dev & Animation",
     tags: ["React", "TypeScript", "GSAP", "Tailwind CSS"],
@@ -113,7 +106,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/GSAP_MacBook_landing",
   },
   {
-    id: 3,
     title: "Roomify 3D AI Interior",
     year: "2024",
     category: "AI Spatial Visualization",
@@ -122,7 +114,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/roomify",
   },
   {
-    id: 4,
     title: "Opaline Cocktail Bar Experience",
     year: "2024",
     category: "Creative Web & Motion",
@@ -131,7 +122,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/cocktails",
   },
   {
-    id: 5,
     title: "T-AutoNLP (Hybrid AutoML Engine)",
     year: "2024",
     category: "AI Research & Genetic Algorithms",
@@ -141,7 +131,6 @@ export const ARCHIVE_PROJECTS = [
       "https://github.com/ThaminduDasanayake/hybrid-multiobjective-autonlp",
   },
   {
-    id: 6,
     title: "Classroom LMS Platform",
     year: "2024",
     category: "Full Stack & Microservices",
@@ -150,7 +139,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/classroom-frontend",
   },
   {
-    id: 7,
     title: "CoinPulse Crypto Dashboard",
     year: "2024",
     category: "Frontend & Financial Data",
@@ -158,7 +146,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/coinpulse",
   },
   {
-    id: 8,
     title: "Game Hub Discovery Platform",
     year: "2024",
     category: "Frontend",
@@ -167,7 +154,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/game-hub",
   },
   {
-    id: 9,
     title: "LangChain PDF Document Chat (RAG)",
     year: "2024",
     category: "Generative AI",
@@ -175,7 +161,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/langchain-pdf-chat",
   },
   {
-    id: 10,
     title: "LangGraph Stateful Autonomous Chatbot",
     year: "2024",
     category: "Generative AI & Agent Graphs",
@@ -183,7 +168,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/LangGraph-Chatbot",
   },
   {
-    id: 11,
     title: "Local AI Agent with Ollama RAG",
     year: "2024",
     category: "Local LLMs & Offline Agents",
@@ -191,7 +175,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/Local-AI-Agent-with-RAG",
   },
   {
-    id: 12,
     title: "macOS Interactive Desktop Portfolio",
     year: "2024",
     category: "Creative Dev & OS Simulation",
@@ -200,15 +183,6 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/MacOS_Portfolio",
   },
   {
-    id: 13,
-    title: "Nike E-Commerce Platform",
-    year: "2024",
-    category: "Frontend Commerce",
-    tags: ["TypeScript", "React", "Redux", "Tailwind CSS"],
-    repoUrl: "https://github.com/ThaminduDasanayake/nike-ecommerce",
-  },
-  {
-    id: 14,
     title: "Startup Directory (Sanity CMS)",
     year: "2024",
     category: "Full Stack App Router",
@@ -216,44 +190,11 @@ export const ARCHIVE_PROJECTS = [
     repoUrl: "https://github.com/ThaminduDasanayake/startup-directory",
   },
   {
-    id: 15,
-    title: "Twitter Sentiment Analysis Pipeline",
-    year: "2024",
-    category: "Machine Learning & NLP",
-    tags: ["Python", "scikit-learn", "NLTK", "TF-IDF"],
-    repoUrl: "https://github.com/ThaminduDasanayake/Twitter-Sentiment-Analysis",
-  },
-  {
-    id: 16,
-    title: "Coding Challenge Generator CLI",
-    year: "2024",
-    category: "Developer Tooling & LLMs",
-    tags: ["Python", "LangChain", "OpenAI", "CLI"],
-    repoUrl: "https://github.com/ThaminduDasanayake/Coding-Challenge-Generator",
-  },
-  {
-    id: 17,
     title: "Custom Model Context Protocol (MCP) Server",
     year: "2025",
     category: "AI Protocol & Tooling",
     tags: ["Python", "MCP", "FastAPI", "Claude API"],
     repoUrl: "https://github.com/ThaminduDasanayake/Custom-MCP-Server",
-  },
-  {
-    id: 18,
-    title: "iOS Native Weather Application",
-    year: "2024",
-    category: "Mobile (iOS / Swift)",
-    tags: ["Swift", "SwiftUI", "WeatherKit", "iOS"],
-    repoUrl: "https://github.com/ThaminduDasanayake/WeatherApp",
-  },
-  {
-    id: 19,
-    title: "Promptopia AI Prompt Engineering Community",
-    year: "2024",
-    category: "Full Stack",
-    tags: ["Next.js", "MongoDB", "NextAuth", "Tailwind CSS"],
-    repoUrl: "https://github.com/ThaminduDasanayake/promptopia",
   },
 ];
 
@@ -285,45 +226,5 @@ export const EXPERIENCE_MILESTONES: ExperienceItem[] = [
     organization: "Informatics Institute of Technology / Westminster",
     details:
       "Specializing in distributed systems, resilient backend architectures, and AI optimization algorithms.",
-  },
-];
-
-export const CAPABILITIES: CapabilityGroup[] = [
-  {
-    category: "Frontend & UI Craft",
-    skills: [
-      "Next.js 16",
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS v4",
-      "GSAP Motion",
-      "Three.js / WebGL",
-      "Semantic HTML5/CSS3",
-    ],
-  },
-  {
-    category: "Backend & Cloud Architecture",
-    skills: [
-      "Node.js",
-      "Express.js",
-      "Python",
-      "MongoDB",
-      "PostgreSQL",
-      "Docker",
-      "RESTful APIs",
-      "Vercel CI/CD",
-    ],
-  },
-  {
-    category: "AI & Systems Engineering",
-    skills: [
-      "LangChain",
-      "LangGraph Agents",
-      "RAG Architecture",
-      "Ollama Local LLMs",
-      "MCP Protocol",
-      "FastAPI",
-      "AutoML Optimization",
-    ],
   },
 ];

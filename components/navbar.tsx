@@ -54,12 +54,6 @@ export function Navbar({ onOpenArchive }: NavbarProps) {
           >
             ARCHIVE
           </button>
-          <Link
-            href="/#contact"
-            className="hover:text-foreground uppercase transition-colors"
-          >
-            CONTACT
-          </Link>
         </nav>
 
         <div className="flex items-center">
@@ -108,13 +102,6 @@ export function Navbar({ onOpenArchive }: NavbarProps) {
           >
             ARCHIVE
           </button>
-          <Link
-            href="/#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="text-foreground hover:text-primary block py-2 uppercase transition-colors"
-          >
-            CONTACT
-          </Link>
         </div>
       )}
     </header>
