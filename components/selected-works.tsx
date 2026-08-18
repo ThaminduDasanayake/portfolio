@@ -13,8 +13,8 @@ export function SelectedWorks({ onOpenArchive }: SelectedWorksProps) {
     <section id="works" className="py-16 sm:py-24">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex items-baseline gap-6 sm:gap-8 mb-10 sm:mb-14">
-          <h2 className="text-xl sm:text-2xl font-normal tracking-tight text-foreground">
+        <div className="mb-10 flex items-baseline gap-6 sm:mb-14 sm:gap-8">
+          <h2 className="text-foreground text-xl font-normal tracking-tight sm:text-2xl">
             Selected Works
           </h2>
           <span className="font-mono text-xl tracking-wide uppercase">
@@ -23,7 +23,7 @@ export function SelectedWorks({ onOpenArchive }: SelectedWorksProps) {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-10 gap-y-12 sm:gap-y-16">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 md:grid-cols-2 lg:gap-x-10">
           {SELECTED_PROJECTS.map((project) => {
             const cardContent = (
               <>
@@ -34,26 +34,26 @@ export function SelectedWorks({ onOpenArchive }: SelectedWorksProps) {
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 ease-out scale-105 group-hover:scale-100"
+                      className="scale-105 object-cover transition-transform duration-700 ease-out group-hover:scale-100"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-muted/40">
+                    <div className="bg-muted/40 flex h-full w-full items-center justify-center">
                       No Image
                     </div>
                   )}
                 </div>
 
                 {/* Card Info Below Media */}
-                <div className="mt-4 sm:mt-5 space-y-1">
+                <div className="mt-4 space-y-1 sm:mt-5">
                   <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="text-base sm:text-lg font-normal group-hover:text-primary transition-colors">
+                    <h3 className="group-hover:text-primary text-base font-normal transition-colors sm:text-lg">
                       {project.title}
                     </h3>
-                    <span className="text-base sm:text-lg font-normal font-mono tabular-nums shrink-0">
+                    <span className="shrink-0 font-mono text-base font-normal tabular-nums sm:text-lg">
                       {project.year}
                     </span>
                   </div>
-                  <p className="text-base sm:text-lg font-normal">
+                  <p className="text-base font-normal sm:text-lg">
                     {project.category}
                   </p>
                 </div>
@@ -68,7 +68,7 @@ export function SelectedWorks({ onOpenArchive }: SelectedWorksProps) {
                 href={linkHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-2xl"
+                className="group focus-visible:ring-ring block cursor-pointer rounded-2xl focus:outline-none focus-visible:ring-2"
               >
                 {cardContent}
               </a>
@@ -81,11 +81,11 @@ export function SelectedWorks({ onOpenArchive }: SelectedWorksProps) {
         </div>
 
         {/* View Full Archive Footer CTA */}
-        <div className="mt-16 sm:mt-20 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="mt-16 flex flex-col items-start justify-between gap-4 pt-8 sm:mt-20 sm:flex-row sm:items-center">
           <button
             type="button"
             onClick={onOpenArchive}
-            className="group font-heading font-semibold tracking-wider inline-flex items-center gap-2 cursor-pointer"
+            className="group font-heading inline-flex cursor-pointer items-center gap-2 font-semibold tracking-wider"
           >
             <span>
               VIEW FULL PROJECT ARCHIVE ({ARCHIVE_PROJECTS.length || "20+"})

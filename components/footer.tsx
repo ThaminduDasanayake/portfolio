@@ -25,8 +25,8 @@ export function Footer() {
   }, []);
 
   return (
-    <footer id="contact" className="p-8 gap-11 border-t">
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+    <footer id="contact" className="gap-11 border-t p-8">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
         <div className="md:col-span-3">
           <p>
             Interested to work with me?
@@ -35,7 +35,7 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="md:col-span-1 space-y-3">
+        <div className="space-y-3 md:col-span-1">
           <div className="flex flex-col items-start space-y-2">
             {SOCIAL_LINKS.map((link) => (
               <a
@@ -43,7 +43,7 @@ export function Footer() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-fit hover:text-foreground text-muted-foreground transition-colors"
+                className="hover:text-foreground text-muted-foreground w-fit transition-colors"
               >
                 {link.name}
               </a>
@@ -51,14 +51,14 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="md:col-span-2 space-y-3 md:text-right">
-          <p className="font-mono text-xs text-muted-foreground uppercase tracking-widest">
+        <div className="space-y-3 md:col-span-2 md:text-right">
+          <p className="text-muted-foreground font-mono text-xs tracking-widest uppercase">
             Local Time (Asia/Colombo)
           </p>
-          <div className="font-mono text-base sm:text-lg font-bold text-foreground tracking-wider tabular-nums">
+          <div className="text-foreground font-mono text-base font-bold tracking-wider tabular-nums sm:text-lg">
             {timeStr || "12:00:00 AM"}
           </div>
-          <p className="font-mono text-[11px] text-muted-foreground">
+          <p className="text-muted-foreground font-mono text-[11px]">
             © {new Date().getFullYear()} {PERSONAL_INFO.name}
           </p>
         </div>

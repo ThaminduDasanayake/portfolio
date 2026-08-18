@@ -52,10 +52,10 @@ export default function RootLayout({
         spaceMono.variable,
         geist.variable,
         spaceGroteskHeading.variable,
-        "font-sans",
+        "font-sans"
       )}
     >
-      <body className="min-h-screen bg-background text-foreground selection:bg-accent-foreground selection:text-accent">
+      <body className="bg-background text-foreground selection:bg-accent-foreground selection:text-accent min-h-screen">
         {children}
       </body>
     </html>

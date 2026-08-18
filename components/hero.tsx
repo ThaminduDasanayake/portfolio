@@ -5,7 +5,7 @@ export function Hero() {
     <section id="home" className="relative">
       <div className="mx-auto pt-6 sm:pt-10">
         {/* Huge Display Name */}
-        <div className="flex flex-col items-center justify-center pb-8 sm:pb-12 w-full overflow-hidden px-8">
+        <div className="flex w-full flex-col items-center justify-center overflow-hidden px-8 pb-8 sm:pb-12">
           <h1 className="hero-display-title">
             <span className="block">THAMINDU</span>
             <span className="block">DASANAYAKE</span>
@@ -13,16 +13,16 @@ export function Hero() {
         </div>
 
         {/* Dual Showcase Cards (Bento Row matching Image 1 & 2) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16 sm:mb-24 px-8">
+        <div className="mb-16 grid grid-cols-1 gap-6 px-8 sm:mb-24 sm:gap-8 md:grid-cols-2">
           {/* Card 1 (Left): Light aesthetic interactive UI widgets showcase */}
-          <div className="relative aspect-16/11 sm:aspect-16/10 overflow-hidden rounded-3xl border border-border bg-[#e4e6eb] dark:bg-[#ebecef] text-neutral-900 shadow-xl flex items-center justify-center p-4 sm:p-8 transition-transform duration-500 hover:scale-[1.01]"></div>
+          <div className="border-border relative flex aspect-16/11 items-center justify-center overflow-hidden rounded-3xl border bg-[#e4e6eb] p-4 text-neutral-900 shadow-xl transition-transform duration-500 hover:scale-[1.01] sm:aspect-16/10 sm:p-8 dark:bg-[#ebecef]"></div>
 
           {/* Card 2 (Right): Dark device mockup showcasing dark UI widgets */}
-          <div className="relative aspect-16/11 sm:aspect-16/10 overflow-hidden rounded-3xl border border-border bg-[#0d0e12] text-white shadow-xl flex items-center justify-center p-4 sm:p-6 transition-transform duration-500 hover:scale-[1.01]"></div>
+          <div className="border-border relative flex aspect-16/11 items-center justify-center overflow-hidden rounded-3xl border bg-[#0d0e12] p-4 text-white shadow-xl transition-transform duration-500 hover:scale-[1.01] sm:aspect-16/10 sm:p-6"></div>
         </div>
 
         {/* Editorial Split Bio (matching Image 2) */}
-        <div className="grid grid-cols-1 justify-center py-30 px-8 lg:grid-cols-6 gap-8 lg:gap-12 items-start pt-6">
+        <div className="grid grid-cols-1 items-start justify-center gap-8 px-8 py-30 pt-6 lg:grid-cols-6 lg:gap-12">
           <div className="lg:col-span-3">
             <h2 className="hero-description">
               Hi, I&apos;m Thamindu, a software engineer who loves to
@@ -30,7 +30,7 @@ export function Hero() {
               digital products.
             </h2>
           </div>
-          <div className="lg:col-span-2 text-sm sm:text-base leading-relaxed space-y-4">
+          <div className="space-y-4 text-sm leading-relaxed sm:text-base lg:col-span-2">
             <p>
               Software Engineer specializing in full-stack architecture with
               Next.js, TypeScript, React, Node.js, and Generative AI pipelines.

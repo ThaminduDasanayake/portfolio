@@ -12,41 +12,41 @@ import {
 
 export function Experience() {
   return (
-    <section id="experience" className="py-16 px-8">
+    <section id="experience" className="px-8 py-16">
       <div className="mx-auto">
         {/* Section Heading & Intro */}
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-4 lg:grid-cols-6">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+            <h2 className="text-foreground text-2xl font-bold tracking-tight sm:text-3xl">
               Experiences
             </h2>
-            <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider mt-2">
+            <p className="text-muted-foreground mt-2 font-mono text-xs tracking-wider uppercase">
               Career Trajectory & Education
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 pt-2">
+        <div className="grid grid-cols-1 gap-6 pt-2 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
           {EXPERIENCE_MILESTONES.map((item, index) => (
             <Card
               key={index}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-xl ring-0"
+              className="flex flex-col justify-between rounded-xl p-6 ring-0 sm:p-7"
             >
-              <CardHeader className="p-0 gap-3">
-                <span className="font-mono text-xl sm:text-2xl font-bold text-foreground tracking-wider">
+              <CardHeader className="gap-3 p-0">
+                <span className="text-foreground font-mono text-xl font-bold tracking-wider sm:text-2xl">
                   {item.year}
                 </span>
                 <div className="space-y-1">
-                  <CardTitle className="font-medium text-foreground text-base">
+                  <CardTitle className="text-foreground text-base font-medium">
                     {item.role}
                   </CardTitle>
-                  <CardDescription className="font-mono text-xs text-muted-foreground uppercase tracking-wide">
+                  <CardDescription className="text-muted-foreground font-mono text-xs tracking-wide uppercase">
                     {item.organization}
                   </CardDescription>
                 </div>
               </CardHeader>
               {item.details && (
-                <CardContent className="p-0 pt-3 text-xs tracking-wide text-muted-foreground leading-relaxed">
+                <CardContent className="text-muted-foreground p-0 pt-3 text-xs leading-relaxed tracking-wide">
                   {item.details}
                 </CardContent>
               )}
