@@ -1,15 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import {
-  Copy,
-  Check,
-  GithubLogo,
-  LinkedinLogo,
-  MediumLogo,
-  InstagramLogo,
-  ArrowUpRight,
-} from "@phosphor-icons/react";
+import Image from "next/image";
+import { Copy, Check } from "@phosphor-icons/react";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/data";
 
 export function MinimalConnect() {
@@ -22,21 +15,6 @@ export function MinimalConnect() {
       setTimeout(() => setCopied(false), 2000);
     } catch {
       // Fallback
-    }
-  };
-
-  const getSocialIcon = (name: string) => {
-    switch (name.toLowerCase()) {
-      case "github":
-        return <GithubLogo size={16} />;
-      case "linkedin":
-        return <LinkedinLogo size={16} />;
-      case "medium":
-        return <MediumLogo size={16} />;
-      case "instagram":
-        return <InstagramLogo size={16} />;
-      default:
-        return <ArrowUpRight size={14} />;
     }
   };
 
@@ -77,9 +55,17 @@ export function MinimalConnect() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="group inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
-            {getSocialIcon(link.name)}
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <Image
+                src={`/socials/${link.name.toLowerCase()}.svg`}
+                alt={link.name}
+                width={16}
+                height={16}
+                className="h-4 w-4 object-contain opacity-70 transition-opacity group-hover:opacity-100 dark:invert"
+              />
+            </span>
             <span>{link.name}</span>
           </a>
         ))}
@@ -87,3 +73,4 @@ export function MinimalConnect() {
     </section>
   );
 }
+
