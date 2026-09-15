@@ -11,6 +11,20 @@ export interface Project {
   type?: "interactive-widget" | "macbook" | "glodwater" | "image";
 }
 
+export interface SimpleRead {
+  slug: string;
+  title: string;
+  date: string;
+  readTime: string;
+  description: string;
+  tags: string[];
+}
+
+export interface TechStackCategory {
+  category: string;
+  skills: string[];
+}
+
 export interface ExperienceItem {
   year: string;
   role: string;
@@ -20,14 +34,15 @@ export interface ExperienceItem {
 }
 
 export const PERSONAL_INFO = {
-  name: "THAMINDU DASANAYAKE",
-  nickname: "Thamindu",
-  brand: "THAMINDU©",
-  location: "Colombo 🇱🇰",
-  locationShort: "CMB",
+  name: "Thamindu Dasanayake",
+  handle: "@thamindud",
+  brand: "THAMINDU",
+  location: "Colombo, Sri Lanka",
+  timezone: "GMT+5:30",
   email: "thamindudasanayake@gmail.com",
-  roleTitle: "SOFTWARE ENGINEER",
-  roleSubtitle: "FULL STACK & AI",
+  roleTitle: "Software Engineer",
+  bio: "Software Engineer who loves to experiment, architect resilient systems, and build intuitive digital products with Next.js, TypeScript, Node.js, and AI workflows.",
+  availability: "Available for interesting projects & engineering roles",
 };
 
 export const SOCIAL_LINKS = [
@@ -35,6 +50,46 @@ export const SOCIAL_LINKS = [
   { name: "LinkedIn", url: "https://www.linkedin.com/in/thamindu-dasanayake/" },
   { name: "Medium", url: "https://medium.com/@thamindudasanayake" },
   { name: "Instagram", url: "https://www.instagram.com/thamindudasanayake/" },
+];
+
+export const TECH_STACK: TechStackCategory[] = [
+  {
+    category: "Frontend",
+    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Motion"],
+  },
+  {
+    category: "Backend",
+    skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "REST APIs"],
+  },
+  {
+    category: "AI & Systems",
+    skills: ["LangChain", "LangGraph", "Ollama", "RAG Pipelines", "FastAPI"],
+  },
+  {
+    category: "Tools & Infra",
+    skills: ["Docker", "Git", "Inngest", "Cloudflare", "Vercel"],
+  },
+];
+
+export const SIMPLE_READS: SimpleRead[] = [
+  {
+    slug: "on-building-with-llms",
+    title: "On Building AI-Native Apps: Beyond Simple Prompt Wrappers",
+    date: "Sep 2026",
+    readTime: "4 min read",
+    description:
+      "Why structured outputs, deterministic tool calling, and state graphs make or break real-world LLM products.",
+    tags: ["AI", "Architecture", "LangGraph"],
+  },
+  {
+    slug: "on-minimal-interfaces",
+    title: "The Quiet Power of Plain-Text and Minimalist Interfaces",
+    date: "Aug 2026",
+    readTime: "3 min read",
+    description:
+      "How reducing visual noise, excessive animations, and bloated frameworks leads to faster software and clarity of thought.",
+    tags: ["Design", "Engineering", "UX"],
+  },
 ];
 
 export const SELECTED_PROJECTS: Project[] = [
@@ -200,18 +255,11 @@ export const ARCHIVE_PROJECTS = [
 
 export const EXPERIENCE_MILESTONES: ExperienceItem[] = [
   {
-    year: "2023",
-    role: "Foundation in Higher Education (IT)",
+    year: "2024 — Present",
+    role: "BEng (Hons) Software Engineering",
     organization: "IIT / University of Westminster",
     details:
-      "Completed with Distinction. Core computing fundamentals, algorithm design, and data structures.",
-  },
-  {
-    year: "2024",
-    role: "Software Engineering Intern",
-    organization: "SLT Mobitel (Pvt) Ltd",
-    details:
-      "Enterprise BCMS development with MERN stack. Digitized multi-level approval workflows and interactive hierarchy call-trees.",
+      "Specializing in distributed systems, resilient backend architectures, and AI optimization algorithms.",
   },
   {
     year: "2025",
@@ -221,10 +269,17 @@ export const EXPERIENCE_MILESTONES: ExperienceItem[] = [
       "Crafted modern web solutions for commercial clients (CeyFish), configured Vercel CI/CD pipelines, and built high-conversion UI/UX.",
   },
   {
-    year: "PRESENT",
-    role: "BEng (Hons) Software Engineering",
-    organization: "Informatics Institute of Technology / Westminster",
+    year: "2024",
+    role: "Software Engineering Intern",
+    organization: "SLT Mobitel (Pvt) Ltd",
     details:
-      "Specializing in distributed systems, resilient backend architectures, and AI optimization algorithms.",
+      "Enterprise BCMS development with MERN stack. Digitized multi-level approval workflows and interactive hierarchy call-trees.",
+  },
+  {
+    year: "2023",
+    role: "Foundation in Higher Education (IT)",
+    organization: "IIT / University of Westminster",
+    details:
+      "Completed with Distinction. Core computing fundamentals, algorithm design, and data structures.",
   },
 ];
