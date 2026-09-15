@@ -14,16 +14,16 @@ export default function HomePage() {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
 
   return (
-    <main className="relative min-h-screen bg-background text-foreground">
+    <main className="bg-background text-foreground relative min-h-screen">
       {/* Pinned Scroll Progress Indicator */}
-      <ScrollProgress className="fixed top-0 z-50 h-0.5 bg-muted-foreground/60" />
+      <ScrollProgress className="bg-muted-foreground/60 fixed top-0 z-50 h-0.5" />
 
-      <div className="mx-auto max-w-xl px-6 py-16 sm:py-24 space-y-12 sm:space-y-16">
+      <div className="mx-auto max-w-xl space-y-12 px-6 py-16 sm:space-y-16 sm:py-24">
         <MinimalHeader />
-        <MinimalStack />
         <MinimalProjects onOpenArchive={() => setIsArchiveOpen(true)} />
-        <MinimalReads />
+        <MinimalStack />
         <MinimalExperience />
+        <MinimalReads />
         <MinimalConnect />
       </div>
 
@@ -34,4 +34,3 @@ export default function HomePage() {
     </main>
   );
 }
-
