@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "@phosphor-icons/react";
+import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import { SIMPLE_READS } from "@/lib/data";
 
 export function MinimalReads() {
@@ -26,7 +26,7 @@ export function MinimalReads() {
             <div className="flex flex-col gap-0.5 sm:max-w-[75%]">
               <span className="inline-flex items-center gap-1 font-medium text-foreground transition-colors group-hover:underline group-hover:underline-offset-4">
                 <span>{read.title}</span>
-                <ArrowUpRight
+                <ArrowUpRightIcon
                   size={14}
                   className="text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground"
                 />

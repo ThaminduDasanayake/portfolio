@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "@phosphor-icons/react/dist/ssr";
+import { ArrowLeftIcon } from "@phosphor-icons/react/dist/ssr";
 import { PERSONAL_INFO } from "@/lib/data";
 
 export default function ReadsLayout({
@@ -16,7 +16,7 @@ export default function ReadsLayout({
             href="/"
             className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground transition-colors hover:text-foreground"
           >
-            <ArrowLeft size={14} />
+            <ArrowLeftIcon size={14} />
             <span>back to index</span>
           </Link>
           <span className="font-mono text-xs text-muted-foreground">

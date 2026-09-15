@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Sparkle, CheckCircle, Warning } from "@phosphor-icons/react";
+import { SparkleIcon, CheckCircleIcon, WarningIcon } from "@phosphor-icons/react";
 
 export default function BuildingWithLLMsPage() {
   const [pipelineMode, setPipelineMode] = useState<"naive" | "agentic">("agentic");
@@ -36,7 +36,7 @@ export default function BuildingWithLLMsPage() {
         <div className="my-8 rounded-xl border border-border/60 bg-muted/20 p-5 space-y-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Sparkle className="text-amber-400" size={16} />
+              <SparkleIcon className="text-amber-400" size={16} />
               <span className="font-mono text-xs font-medium text-foreground">
                 Interactive Architecture Comparison
               </span>
@@ -70,7 +70,7 @@ export default function BuildingWithLLMsPage() {
           {pipelineMode === "naive" ? (
             <div className="space-y-2 rounded-lg border border-amber-500/20 bg-amber-500/5 p-3.5 text-xs font-mono text-muted-foreground">
               <div className="flex items-center gap-2 text-amber-400">
-                <Warning size={15} />
+                <WarningIcon size={15} />
                 <span>Single-shot LLM Call: High variance, fragile JSON formatting</span>
               </div>
               <p className="text-muted-foreground/80 pl-6">
@@ -80,7 +80,7 @@ export default function BuildingWithLLMsPage() {
           ) : (
             <div className="space-y-2 rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-3.5 text-xs font-mono text-muted-foreground">
               <div className="flex items-center gap-2 text-emerald-400">
-                <CheckCircle size={15} />
+                <CheckCircleIcon size={15} />
                 <span>LangGraph State Graph: Deterministic tool loop & schema validation</span>
               </div>
               <p className="text-muted-foreground/80 pl-6">

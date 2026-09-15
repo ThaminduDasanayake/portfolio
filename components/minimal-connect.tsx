@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Copy, Check } from "@phosphor-icons/react";
+import { CopyIcon, CheckIcon } from "@phosphor-icons/react";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/data";
 
 export function MinimalConnect() {
@@ -38,11 +38,11 @@ export function MinimalConnect() {
           <span>{PERSONAL_INFO.email}</span>
           {copied ? (
             <span className="inline-flex items-center gap-1 text-emerald-400">
-              <Check size={14} />
+              <CheckIcon size={14} />
               <span>Copied</span>
             </span>
           ) : (
-            <Copy size={14} className="text-muted-foreground" />
+            <CopyIcon size={14} className="text-muted-foreground" />
           )}
         </button>
       </div>
