@@ -8,18 +8,18 @@ export default function ReadsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="bg-background text-foreground min-h-screen">
       <div className="mx-auto max-w-xl px-6 py-12 sm:py-20">
         {/* Navigation Bar */}
-        <nav className="mb-12 flex items-center justify-between border-b border-border/40 pb-4">
+        <nav className="border-border/40 mb-12 flex items-center justify-between border-b pb-4">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-muted-foreground transition-colors hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 font-mono text-xs transition-colors"
           >
             <ArrowLeftIcon size={14} />
             <span>back to index</span>
           </Link>
-          <span className="font-mono text-xs text-muted-foreground">
+          <span className="text-muted-foreground font-mono text-xs">
             {PERSONAL_INFO.brand} / reads
           </span>
         </nav>
@@ -28,8 +28,8 @@ export default function ReadsLayout({
         <main>{children}</main>
 
         {/* Footer */}
-        <footer className="mt-16 border-t border-border/40 pt-8">
-          <div className="flex items-center justify-between text-xs font-mono text-muted-foreground">
+        <footer className="border-border/40 mt-16 border-t pt-8">
+          <div className="text-muted-foreground flex items-center justify-between font-mono text-xs">
             <Link href="/" className="hover:text-foreground">
               ← {PERSONAL_INFO.name}
             </Link>

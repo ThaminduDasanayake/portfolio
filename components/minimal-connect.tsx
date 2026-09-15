@@ -19,12 +19,12 @@ export function MinimalConnect() {
   };
 
   return (
-    <section className="space-y-4 pt-4 border-t border-border/40">
-      <h2 className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
+    <section className="border-border/40 space-y-4 border-t pt-4">
+      <h2 className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
         Connect
       </h2>
 
-      <p className="text-sm text-muted-foreground">
+      <p className="text-muted-foreground text-sm">
         {PERSONAL_INFO.availability}. Feel free to reach out directly:
       </p>
 
@@ -33,7 +33,7 @@ export function MinimalConnect() {
         <button
           type="button"
           onClick={handleCopyEmail}
-          className="inline-flex items-center gap-2 rounded-lg border border-border/70 bg-muted/20 px-3 py-1.5 text-xs font-mono text-foreground transition-all hover:bg-muted/40 hover:border-border cursor-pointer active:scale-95"
+          className="border-border/70 bg-muted/20 text-foreground hover:bg-muted/40 hover:border-border inline-flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-1.5 font-mono text-xs transition-all active:scale-95"
         >
           <span>{PERSONAL_INFO.email}</span>
           {copied ? (
@@ -55,7 +55,7 @@ export function MinimalConnect() {
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
+            className="group text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-xs transition-colors"
           >
             <span className="relative flex h-4 w-4 items-center justify-center">
               <Image
@@ -73,4 +73,3 @@ export function MinimalConnect() {
     </section>
   );
 }
-
