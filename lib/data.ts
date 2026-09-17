@@ -20,9 +20,15 @@ export interface SimpleRead {
   tags: string[];
 }
 
+export interface TechSkill {
+  name: string;
+  icon?: string;
+  invertInDark?: boolean;
+}
+
 export interface TechStackCategory {
   category: string;
-  skills: string[];
+  skills: TechSkill[];
 }
 
 export interface ExperienceItem {
@@ -55,19 +61,48 @@ export const SOCIAL_LINKS = [
 export const TECH_STACK: TechStackCategory[] = [
   {
     category: "Frontend",
-    skills: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Motion"],
+    skills: [
+      { name: "Next.js", icon: "/nextjs.svg", invertInDark: true },
+      { name: "React", icon: "/react.svg" },
+      { name: "TypeScript", icon: "/typescript.svg" },
+      { name: "Tailwind CSS", icon: "/tailwind.svg" },
+      { name: "JavaScript", icon: "/javascript.svg" },
+      { name: "GSAP", icon: "/gsap.svg" },
+      { name: "Three.js", icon: "/threejs.svg", invertInDark: true },
+    ],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", "PostgreSQL", "Prisma", "REST APIs"],
+    category: "Backend & Databases",
+    skills: [
+      { name: "Node.js", icon: "/nodejs.svg" },
+      { name: "Express", icon: "/express.svg", invertInDark: true },
+      { name: "PostgreSQL", icon: "/postgresql.svg" },
+      { name: "MongoDB", icon: "/mongodb.svg" },
+      { name: "MySQL", icon: "/mysql.svg" },
+      { name: "Firebase", icon: "/firebase.svg" },
+    ],
   },
   {
     category: "AI & Systems",
-    skills: ["LangChain", "LangGraph", "Ollama", "RAG Pipelines", "FastAPI"],
+    skills: [
+      { name: "Python", icon: "/python.svg" },
+      { name: "Streamlit", icon: "/streamlit.svg" },
+      { name: "LangChain" },
+      { name: "LangGraph" },
+      { name: "Ollama" },
+      { name: "FastAPI" },
+    ],
   },
   {
-    category: "Tools & Infra",
-    skills: ["Docker", "Git", "Inngest", "Cloudflare", "Vercel"],
+    category: "Tools & DevOps",
+    skills: [
+      { name: "Docker", icon: "/docker.svg" },
+      { name: "Git", icon: "/git.svg" },
+      { name: "GitHub", icon: "/github.svg", invertInDark: true },
+      { name: "Vercel", icon: "/vercel.svg", invertInDark: true },
+      { name: "Postman", icon: "/postman.svg" },
+      { name: "Sanity", icon: "/sanity.svg" },
+    ],
   },
 ];
 

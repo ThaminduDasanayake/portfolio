@@ -63,7 +63,7 @@ export function MinimalConnect() {
                 alt={link.name}
                 width={16}
                 height={16}
-                className="h-4 w-4 object-contain opacity-70 transition-opacity group-hover:opacity-100 dark:invert"
+                className="h-4 w-4 object-contain transition-opacity group-hover:opacity-100"
               />
             </span>
             <span>{link.name}</span>
