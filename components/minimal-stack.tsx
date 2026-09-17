@@ -24,7 +24,7 @@ export function MinimalStack() {
                   className="border-border/40 bg-background/70 text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 rounded-md border px-2 py-1 text-xs transition-colors"
                 >
                   {skill.icon && (
-                    <span className="relative flex h-3.5 w-3.5 items-center justify-center shrink-0">
+                    <span className="relative flex h-3.5 w-3.5 shrink-0 items-center justify-center">
                       <Image
                         src={skill.icon}
                         alt={skill.name}
