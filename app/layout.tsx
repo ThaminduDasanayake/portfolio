@@ -37,6 +37,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Thamindu Dasanayake" }],
   creator: "Thamindu Dasanayake",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
