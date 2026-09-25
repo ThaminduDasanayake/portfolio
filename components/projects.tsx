@@ -7,7 +7,7 @@ interface MinimalProjectsProps {
   onOpenArchive: () => void;
 }
 
-export function MinimalProjects({ onOpenArchive }: MinimalProjectsProps) {
+export function Projects({ onOpenArchive }: MinimalProjectsProps) {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">

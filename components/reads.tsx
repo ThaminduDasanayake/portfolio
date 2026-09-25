@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowUpRightIcon } from "@phosphor-icons/react";
 import { SIMPLE_READS } from "@/lib/data";
 
-export function MinimalReads() {
+export function Reads() {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">

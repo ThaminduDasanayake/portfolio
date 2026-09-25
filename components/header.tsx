@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { PERSONAL_INFO } from "@/lib/data";
 
-export function MinimalHeader() {
+export function Header() {
   return (
     <header className="space-y-6">
       <div className="flex items-center justify-between">
