@@ -11,13 +11,13 @@ export interface Project {
   type?: "interactive-widget" | "macbook" | "glodwater" | "image";
 }
 
-export interface SimpleRead {
+export interface SimplePost {
   slug: string;
   title: string;
   date: string;
   readTime: string;
-  description: string;
-  tags: string[];
+  description?: string;
+  tags?: string[];
 }
 
 export interface TechSkill {
@@ -41,6 +41,7 @@ export interface ExperienceItem {
 
 export const PERSONAL_INFO = {
   name: "Thamindu Dasanayake",
+  link: "https://thamindu-dasanayake.vercel.app/",
   handle: "@thamindud",
   brand: "THAMINDU",
   location: "Colombo, Sri Lanka",
@@ -106,33 +107,18 @@ export const TECH_STACK: TechStackCategory[] = [
   },
 ];
 
-export const SIMPLE_READS: SimpleRead[] = [
+export const SIMPLE_POSTS: SimplePost[] = [
+  {
+    slug: "phosphor-over-lucide",
+    title: "Why I Pick Phosphor Over Lucide",
+    date: "Sep 2026",
+    readTime: "6 min read",
+  },
   {
     slug: "better-auth-github-setup",
-    title: "Setting Up Better Auth with GitHub OAuth in Next.js",
+    title: "Setting Up Better Auth with GitHub OAuth",
     date: "Sep 2026",
     readTime: "5 min read",
-    description:
-      "A copy-paste reference handbook for Better Auth instance setup, GitHub OAuth app credentials, route handlers, and session protection.",
-    tags: ["Auth", "Next.js", "Better Auth", "TypeScript"],
-  },
-  {
-    slug: "on-building-with-llms",
-    title: "On Building AI-Native Apps: Beyond Simple Prompt Wrappers",
-    date: "Sep 2026",
-    readTime: "4 min read",
-    description:
-      "Why structured outputs, deterministic tool calling, and state graphs make or break real-world LLM products.",
-    tags: ["AI", "Architecture", "LangGraph"],
-  },
-  {
-    slug: "on-minimal-interfaces",
-    title: "The Quiet Power of Plain-Text and Minimalist Interfaces",
-    date: "Aug 2026",
-    readTime: "3 min read",
-    description:
-      "How reducing visual noise, excessive animations, and bloated frameworks leads to faster software and clarity of thought.",
-    tags: ["Design", "Engineering", "UX"],
   },
 ];
 

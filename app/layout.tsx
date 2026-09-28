@@ -52,6 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn(
         "dark antialiased",
         spaceMono.variable,
@@ -60,7 +61,10 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body className="bg-background text-foreground selection:bg-accent-foreground selection:text-accent min-h-screen">
+      <body
+        suppressHydrationWarning
+        className="bg-background text-foreground selection:bg-accent-foreground selection:text-accent min-h-screen"
+      >
         {children}
       </body>
     </html>

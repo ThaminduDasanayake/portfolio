@@ -5,7 +5,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { Header } from "@/components/header";
 import { Stack } from "@/components/stack";
 import { Projects } from "@/components/projects";
-import { Reads } from "@/components/reads";
+import { Posts } from "@/components/posts";
 import { Experience } from "@/components/experience";
 import { Connect } from "@/components/connect";
 import { ArchiveModal } from "@/components/archive-modal";
@@ -23,7 +23,7 @@ export default function HomePage() {
         <Projects onOpenArchive={() => setIsArchiveOpen(true)} />
         <Stack />
         <Experience />
-        <Reads />
+        <Posts />
         <Connect />
       </div>
 

@@ -22,6 +22,11 @@
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.7 0 0);
   --radius: 0.75rem;
+
+  /*themes*/
+  --moss: oklch(0.36 0.03 116.91);
+  --sand: oklch(0.76 0.02 8.35);
+  --acid: oklch(0.87 0.17 120.84);
 }
 
 @theme inline {
@@ -48,12 +53,22 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Dual Color Post Themes */
+  --color-post-bg: var(--post-bg, var(--background));
+  --color-post-fg: var(--post-fg, var(--foreground));
+  --color-post-muted: color-mix(in srgb, var(--color-post-fg) 70%, transparent);
+  --color-post-border: color-mix(in srgb, var(--color-post-fg) 18%, transparent);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
+
+  --color-moss: var(--moss);
+  --color-acid: var(--acid);
+  --color-sand: var(--sand);
 }
 
 @layer base {
@@ -104,3 +119,40 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-foreground);
 }
+
+/* Post Typography */
+.prose-custom {
+  color: inherit;
+}
+
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  color: inherit;
+}
+
+.prose-custom p,
+.prose-custom ul,
+.prose-custom ol {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.prose-custom strong,
+.prose-custom b {
+  color: inherit;
+  opacity: 1;
+}
+
+.prose-custom a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s;
+}
+
+.prose-custom a:hover {
+  opacity: 0.75;
+}
+
