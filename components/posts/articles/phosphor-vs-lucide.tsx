@@ -2,8 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeftIcon,
+  ArrowRightIcon,
   ArrowSquareOutIcon,
   ChatCircleDotsIcon,
   CheckCircleIcon,
@@ -256,9 +258,12 @@ export function PhosphorVsLucideArticle() {
             rel="noopener noreferrer"
             className="group/link inline-flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 transition-colors hover:border-current/60"
           >
-            <img
-              src="https://phosphoricons.com/favicon-192.png"
+            <Image
+              src="/posts/phosphor-vs-lucide/phosphor-icon.png"
               alt="Phosphor Icons"
+              width={14}
+              height={14}
+              unoptimized
               className="h-3.5 w-3.5 rounded-xs"
             />
             <span>phosphoricons.com</span>
@@ -272,6 +277,32 @@ export function PhosphorVsLucideArticle() {
         <h1 className="text-3xl leading-tight font-medium tracking-tight sm:text-4xl lg:text-5xl">
           Why I Pick Phosphor Over Lucide
         </h1>
+
+        <div className="flex items-center justify-center gap-6 py-2">
+          <div className="flex items-center gap-3 rounded-xl border border-current/15 bg-current/5 px-4 py-2.5">
+            <Image
+              src="/posts/phosphor-vs-lucide/lucide-icon.svg"
+              alt="Lucide Icons Logo"
+              width={32}
+              height={32}
+              unoptimized
+              className="h-8 w-8 object-contain"
+            />
+            <span className="font-mono text-sm font-medium">Lucide</span>
+          </div>
+          <ArrowRightIcon className="size-6" />
+          <div className="flex items-center gap-3 rounded-xl border border-current/15 bg-current/5 px-4 py-2.5">
+            <Image
+              src="/posts/phosphor-vs-lucide/phosphor-icon.png"
+              alt="Phosphor Icons Logo"
+              width={32}
+              height={32}
+              unoptimized
+              className="h-8 w-8 rounded-md object-contain"
+            />
+            <span className="font-mono text-sm font-medium">Phosphor</span>
+          </div>
+        </div>
 
         <div className="flex w-full flex-col gap-14">
           <p className="text-lg leading-relaxed sm:text-xl">
@@ -297,6 +328,15 @@ export function PhosphorVsLucideArticle() {
             gives you 6 different weights for every single icon, making it so
             much easier to match your fonts and build cleaner interfaces.
           </p>
+
+          <Image
+            src="/posts/phosphor-vs-lucide/phosphor-og.png"
+            alt="Phosphor Icons showcase banner"
+            width={1200}
+            height={630}
+            unoptimized
+            className="w-full rounded-xl border border-current/15 object-cover shadow-sm"
+          />
 
           <section id="vibe-code" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
@@ -616,12 +656,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 rel="noopener noreferrer"
                 className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
               >
-                <img
-                  src="https://phosphoricons.com/favicon-192.png"
+                <Image
+                  src="/posts/phosphor-vs-lucide/phosphor-icon.png"
                   alt="Phosphor Icons"
+                  width={16}
+                  height={16}
+                  unoptimized
                   className="h-4 w-4 rounded-xs"
                 />
-                <span>Official Catalog &amp; Docs</span>
+                <span>Phosphor Icons</span>
                 <ArrowSquareOutIcon
                   size={13}
                   className="transition-transform group-hover/res:translate-x-0.5 group-hover/res:-translate-y-0.5"
@@ -634,9 +677,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 rel="noopener noreferrer"
                 className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
               >
-                <img
+                <Image
                   src="/logos/github.svg"
                   alt="GitHub"
+                  width={16}
+                  height={16}
+                  unoptimized
                   className={cn("h-4 w-4", isInverted && "invert")}
                 />
                 <span>@phosphor-icons/react on GitHub</span>
