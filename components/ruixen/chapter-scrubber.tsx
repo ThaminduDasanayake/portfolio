@@ -382,7 +382,7 @@ export function ChapterScrubber({
             )}
           >
             {chapters[activeIndex].meta ? (
-              <div className="mb-1 text-xs font-medium tabular-nums opacity-70">
+              <div className="mb-1 text-xs font-medium tabular-nums">
                 {chapters[activeIndex].meta}
               </div>
             ) : null}
@@ -390,7 +390,7 @@ export function ChapterScrubber({
               {chapters[activeIndex].title}
             </div>
             {chapters[activeIndex].description ? (
-              <p className="mt-1 line-clamp-3 text-sm leading-relaxed opacity-80">
+              <p className="mt-1 line-clamp-3 text-sm leading-relaxed">
                 {chapters[activeIndex].description}
               </p>
             ) : null}

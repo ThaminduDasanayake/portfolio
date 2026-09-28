@@ -39,37 +39,37 @@ const WEIGHT_OPTIONS: { id: PhosphorWeight; label: string }[] = [
 const chapters: Chapter[] = [
   {
     id: "vibe-code",
-    title: "1. Why every site looks the same",
+    title: "Why every site looks the same",
     description: "How default icon setups made modern apps feel identical.",
     meta: "01",
   },
   {
     id: "weights",
-    title: "2. 6 weights for every icon",
+    title: "6 weights for every icon",
     description: "Switch from thin to bold, fill, and duotone easily.",
     meta: "02",
   },
   {
     id: "parity",
-    title: "3. Matching icons with fonts",
+    title: "Matching icons with fonts",
     description: "Fixing thick icons clashing with light typography.",
     meta: "03",
   },
   {
     id: "duotone-fill",
-    title: "4. Easy active & hover states",
+    title: "Easy active & hover states",
     description: "Switching between regular, fill, and duotone on the fly.",
     meta: "04",
   },
   {
     id: "theming",
-    title: "5. Setting global defaults",
+    title: "Setting global defaults",
     description: "Configuring size and weight once for your whole app.",
     meta: "05",
   },
   {
     id: "verdict",
-    title: "6. Wrap up",
+    title: "Wrap up",
     description: "Why switching to Phosphor is worth it.",
     meta: "06",
   },
@@ -247,16 +247,16 @@ export function PhosphorVsLucideArticle() {
       </button>
 
       <article className="relative z-1 mx-auto mt-[clamp(100px,22svh,240px)] mb-0 flex w-3xl flex-col gap-25 break-normal">
-        <div className="flex flex-wrap items-center justify-center gap-2 font-mono text-xs sm:justify-start">
-          <span>6 min read</span>
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+          <span className="font-mono text-xs">6 min read</span>
+
+          <h1 className="text-3xl leading-tight font-medium tracking-tight sm:text-4xl lg:text-5xl">
+            Why I Pick Phosphor Over Lucide
+          </h1>
         </div>
 
-        <h1 className="text-3xl leading-tight font-medium tracking-tight sm:text-5xl">
-          Why I Pick Phosphor Over Lucide
-        </h1>
-
-        <div className="flex w-full flex-col gap-12">
-          <p className="text-base leading-relaxed sm:text-lg">
+        <div className="flex w-full flex-col gap-14">
+          <p className="leading-relaxed">
             If you look at most new web apps or landing pages built recently,
             you will notice they almost all look identical. Lucide is a great
             default, but Phosphor gives you 6 different weights for every single
@@ -264,38 +264,38 @@ export function PhosphorVsLucideArticle() {
             interfaces.
           </p>
 
-          <section id="vibe-code" className="space-y-6 pt-4">
+          <section id="vibe-code" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
-              1. Why every new app looks the same
+              Why every new app looks the same
             </h2>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               Over the past year, AI made building apps faster than ever. Almost
               all of them start with shadcn/ui, which installs Lucide icons by
               default.
             </p>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               There is nothing wrong with Lucide, it works really well and the
               icons look clean. But because everyone leaves the defaults as-is,
               every navbar, card, button, and settings menu on the internet now
               uses the exact same 24px line icons.
             </p>
 
-            <div className="flex items-center gap-2 font-medium">
+            <div className="flex items-center gap-2 pt-2">
               <FlameIcon size={16} weight="duotone" />
               <span>Standing out from the crowd</span>
             </div>
-            <p className="text-xs leading-relaxed sm:text-sm">
+            <p className="leading-relaxed">
               Changing your icon pack is one of the easiest ways to give your
               project its own feel without having to redesign everything from
               scratch.
             </p>
           </section>
 
-          <section id="weights" className="space-y-6 pt-4">
+          <section id="weights" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
-              2. 6 weights for every icon
+              6 weights for every icon
             </h2>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               The main reason I use Phosphor is that every icon in its library
               (over 1,200 of them) comes in{" "}
               <span className="font-semibold">6 consistent weights</span>:{" "}
@@ -409,11 +409,11 @@ export function PhosphorVsLucideArticle() {
             </div>
           </section>
 
-          <section id="parity" className="space-y-6 pt-4">
+          <section id="parity" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
-              3. Matching icons with font weights
+              Matching icons with font weights
             </h2>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               If you have ever built a big display heading with a light font
               like{" "}
               <code className="rounded bg-current/10 px-1.5 py-0.5 font-mono text-xs">
@@ -427,7 +427,7 @@ export function PhosphorVsLucideArticle() {
               of place. The icon feels way too heavy and pulls all the attention
               away from your text.
             </p>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               With Phosphor, you can just match the icon weight directly with
               the font weight you are using:
             </p>
@@ -438,28 +438,28 @@ export function PhosphorVsLucideArticle() {
                 <span>Phosphor Weight</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-base font-thin">font-thin (100)</span>
+                <span className="font-thin">font-thin (100)</span>
                 <span className="inline-flex items-center gap-2">
                   <SparkleIcon size={18} weight="thin" />{" "}
                   weight=&quot;thin&quot;
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-base font-light">font-light (300)</span>
+                <span className="font-light">font-light (300)</span>
                 <span className="inline-flex items-center gap-2">
                   <SparkleIcon size={18} weight="light" />{" "}
                   weight=&quot;light&quot;
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-base font-normal">font-normal (400)</span>
+                <span className="font-normal">font-normal (400)</span>
                 <span className="inline-flex items-center gap-2">
                   <SparkleIcon size={18} weight="regular" />{" "}
                   weight=&quot;regular&quot;
                 </span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-base font-bold">font-bold (700)</span>
+                <span className="font-bold">font-bold (700)</span>
                 <span className="inline-flex items-center gap-2">
                   <SparkleIcon size={18} weight="bold" />{" "}
                   weight=&quot;bold&quot;
@@ -469,16 +469,16 @@ export function PhosphorVsLucideArticle() {
           </section>
 
           {/* 4. Duotone & Fill as Native UI States */}
-          <section id="duotone-fill" className="space-y-6 pt-4">
+          <section id="duotone-fill" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
-              4. Easy active &amp; hover states
+              Easy active &amp; hover states
             </h2>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               In most apps, when someone favorites an item, saves a bookmark, or
               switches tabs, you want the icon to change from an outline to a
               solid fill.
             </p>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               With most icon packs, you have to import two separate icons or
               hack custom SVG fill styles in CSS. With Phosphor, you can just
               switch the weight prop:
@@ -504,7 +504,7 @@ export function FavoriteButton({ isFavorited }: { isFavorited: boolean }) {
 }`}
             />
 
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               The{" "}
               <code className="rounded bg-current/10 px-1.5 py-0.5 font-mono text-xs">
                 duotone
@@ -517,11 +517,11 @@ export function FavoriteButton({ isFavorited }: { isFavorited: boolean }) {
           </section>
 
           {/* 5. Global Theming with IconContext */}
-          <section id="theming" className="space-y-6 pt-4">
+          <section id="theming" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
-              5. Setting global defaults
+              Setting global defaults
             </h2>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               Instead of manually writing{" "}
               <code className="rounded bg-current/10 px-1.5 py-0.5 font-mono text-xs">
                 size={20}
@@ -536,7 +536,7 @@ export function FavoriteButton({ isFavorited }: { isFavorited: boolean }) {
               </code>
               .
             </p>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               You can set your default size and weight once in your root layout,
               and all icons throughout your app will automatically use them:
             </p>
@@ -563,11 +563,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </section>
 
           {/* 6. The Verdict */}
-          <section id="verdict" className="space-y-6 pt-4">
+          <section id="verdict" className="space-y-4 pt-2">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
-              6. Wrap up
+              Wrap up
             </h2>
-            <p className="text-sm leading-relaxed sm:text-base">
+            <p className="leading-relaxed">
               Lucide is still a solid choice if you just want something quick
               that works. But if you want your interfaces to feel a little more
               unique and polished, Phosphor is definitely worth a shot. Having 6
