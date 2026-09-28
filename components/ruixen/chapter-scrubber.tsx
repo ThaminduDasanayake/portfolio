@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import {
+  AnimatePresence,
   motion,
   useMotionValue,
   useReducedMotion,
@@ -37,6 +38,10 @@ export interface ChapterScrubberProps {
   radius?: number;
   /** Marks one chapter as the persistent "current" position (e.g. where an agent is now). */
   currentIndex?: number;
+  /** Continuous fractional scroll position (e.g. 0.0 to chapters.length - 1) */
+  scrollProgress?: number;
+  /** Ambient wave strength when idle/not hovering (0 to 1). Default `1`. */
+  ambientStrength?: number;
   /** Fires when the active (hovered/focused) chapter changes. */
   onActiveChange?: (chapter: Chapter | null, index: number) => void;
   /** Fires when a chapter is chosen via click, Enter or Space. */
@@ -49,10 +54,8 @@ export interface ChapterScrubberProps {
 
 const CARD_WIDTH = 260;
 const GAP = 20;
-// Tight, near-critically-damped spring: tracks the cursor with almost no lag
-// and never overshoots — the wave feels attached to the pointer.
-const POINTER_SPRING = { stiffness: 700, damping: 52, mass: 0.5 };
-// Softer spring for the rise/settle so the wave swells and relaxes gracefully.
+// Tight spring that responds fast to scroll and mouse movements while maintaining fluid easing
+const POINTER_SPRING = { stiffness: 420, damping: 38, mass: 0.4 };
 const STRENGTH_SPRING = { stiffness: 260, damping: 30, mass: 0.6 };
 
 function clamp(value: number, min: number, max: number) {
@@ -74,6 +77,7 @@ interface TickProps {
   restLength: number;
   peakLength: number;
   isCurrent: boolean;
+  side: "left" | "right";
 }
 
 const Tick = React.memo(function Tick({
@@ -84,6 +88,7 @@ const Tick = React.memo(function Tick({
   restLength,
   peakLength,
   isCurrent,
+  side,
 }: TickProps) {
   const width = useTransform(() => {
     const rise = strength.get() * bump(Math.abs(index - pointer.get()), radius);
@@ -91,21 +96,24 @@ const Tick = React.memo(function Tick({
   });
   const opacity = useTransform(() => {
     const rise = strength.get() * bump(Math.abs(index - pointer.get()), radius);
-    const base = isCurrent ? 0.75 : 0.25;
+    const base = isCurrent ? 0.95 : 0.25;
     return base + rise * (1 - base);
   });
   const scaleY = useTransform(() => {
     const rise = strength.get() * bump(Math.abs(index - pointer.get()), radius);
-    // Only a slight thickening at the crest (2px -> ~2.8px); the length change
-    // carries the rise, thickness is a quiet secondary cue.
-    return 1 + rise * 0.4;
+    // Smooth vertical height increase: scales from 1.0 (2.5px) up to 1.8 (4.5px) at the crest
+    return 1 + rise * 0.8;
   });
 
   return (
     <motion.span
       aria-hidden="true"
       style={{ width, opacity, scaleY }}
-      className="block h-0.5 rounded-full bg-current"
+      className={cn(
+        "block h-px rounded-full bg-current transition-colors",
+        side === "left" ? "origin-right" : "origin-left",
+        isCurrent ? "brightness-125" : ""
+      )}
     />
   );
 });
@@ -118,6 +126,8 @@ export function ChapterScrubber({
   rowHeight = 10,
   radius = 4,
   currentIndex,
+  scrollProgress,
+  ambientStrength = 1,
   onActiveChange,
   onSelect,
   label = "Chapters",
@@ -129,17 +139,15 @@ export function ChapterScrubber({
   const listRef = React.useRef<HTMLDivElement>(null);
   const cardRef = React.useRef<HTMLDivElement>(null);
   const buttonsRef = React.useRef<Array<HTMLButtonElement | null>>([]);
-  // Namespaced so option ids stay unique across instances and don't depend on
-  // chapter.id being a valid, collision-free DOM id.
   const baseId = React.useId();
   const optionId = (index: number) => `${baseId}-opt-${index}`;
 
-  const rawPointer = useMotionValue(0);
-  const rawStrength = useMotionValue(0);
+  const initialPos = scrollProgress ?? currentIndex ?? 0;
+  const rawPointer = useMotionValue(initialPos);
+  const rawStrength = useMotionValue(ambientStrength);
   const springPointer = useSpring(rawPointer, POINTER_SPRING);
   const springStrength = useSpring(rawStrength, STRENGTH_SPRING);
-  // Reduced motion: drop the temporal easing but keep the spatial wave, so the
-  // rise is instant rather than sprung.
+
   const pointer = prefersReducedMotion ? rawPointer : springPointer;
   const strength = prefersReducedMotion ? rawStrength : springStrength;
 
@@ -160,6 +168,15 @@ export function ChapterScrubber({
 
   const last = chapters.length - 1;
 
+  // Sync pointer with continuous scroll progress when not hovering
+  React.useEffect(() => {
+    if (!hoveringRef.current && focusedRef.current == null) {
+      const targetPos = scrollProgress ?? currentIndex ?? 0;
+      rawPointer.set(targetPos);
+      rawStrength.set(ambientStrength);
+    }
+  }, [scrollProgress, currentIndex, ambientStrength, rawPointer, rawStrength]);
+
   React.useEffect(() => {
     onActiveChange?.(
       engaged ? chapters[activeIndex] : null,
@@ -167,12 +184,10 @@ export function ChapterScrubber({
     );
   }, [engaged, activeIndex, chapters, onActiveChange]);
 
-  // Measure the card so its vertical travel can be clamped to the rail.
   React.useEffect(() => {
     if (cardRef.current) setCardHeight(cardRef.current.offsetHeight);
   }, [activeIndex]);
 
-  // Flip toward the roomier side if the card would spill past the viewport.
   React.useEffect(() => {
     if (!engaged) return;
     const el = containerRef.current;
@@ -198,7 +213,6 @@ export function ChapterScrubber({
         : "left";
 
   const totalHeight = chapters.length * rowHeight;
-  // Exactly one tick is tabbable at a time (roving tabindex).
   const rovingIndex = engaged ? activeIndex : (currentIndex ?? 0);
 
   const cardTop = useTransform(pointer, (p) => {
@@ -210,7 +224,6 @@ export function ChapterScrubber({
     );
     return center - half;
   });
-  const cardScale = useTransform(strength, [0, 1], [0.97, 1]);
   const cardX = useTransform(
     strength,
     [0, 1],
@@ -237,9 +250,12 @@ export function ChapterScrubber({
     hoveringRef.current = false;
     if (focusedRef.current != null) {
       rawPointer.set(focusedRef.current);
+      rawStrength.set(1);
     } else {
-      rawStrength.set(0);
       setEngaged(false);
+      const targetPos = scrollProgress ?? currentIndex ?? 0;
+      rawPointer.set(targetPos);
+      rawStrength.set(ambientStrength);
     }
   };
 
@@ -247,8 +263,10 @@ export function ChapterScrubber({
     if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
       focusedRef.current = null;
       if (!hoveringRef.current) {
-        rawStrength.set(0);
         setEngaged(false);
+        const targetPos = scrollProgress ?? currentIndex ?? 0;
+        rawPointer.set(targetPos);
+        rawStrength.set(ambientStrength);
       }
     }
   };
@@ -333,47 +351,52 @@ export function ChapterScrubber({
                 restLength={restLength}
                 peakLength={peakLength}
                 isCurrent={isCurrent}
+                side={resolvedSide}
               />
             </button>
           );
         })}
       </div>
 
-      {chapters[activeIndex] ? (
-        <motion.div
-          ref={cardRef}
-          aria-hidden="true"
-          style={{
-            top: cardTop,
-            x: cardX,
-            scale: cardScale,
-            opacity: strength,
-            ...(resolvedSide === "right"
-              ? { left: peakLength + GAP }
-              : { right: peakLength + GAP }),
-          }}
-          className={cn(
-            "border-border pointer-events-none absolute z-10 w-65 rounded-2xl border bg-current px-4 py-3.5 text-current",
-            "shadow-[0_2px_6px_-2px_rgba(0,0,0,0.08),0_16px_36px_-12px_rgba(0,0,0,0.22)]",
-            resolvedSide === "right" ? "origin-left" : "origin-right",
-            cardClassName
-          )}
-        >
-          {chapters[activeIndex].meta ? (
-            <div className="mb-1 text-xs font-medium tabular-nums">
-              {chapters[activeIndex].meta}
+      <AnimatePresence>
+        {engaged && chapters[activeIndex] ? (
+          <motion.div
+            ref={cardRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
+            aria-hidden="true"
+            style={{
+              top: cardTop,
+              x: cardX,
+              ...(resolvedSide === "right"
+                ? { left: peakLength + GAP }
+                : { right: peakLength + GAP }),
+            }}
+            className={cn(
+              "pointer-events-none absolute z-10 w-65 rounded-2xl border px-4 py-3.5",
+              "shadow-[0_2px_6px_-2px_rgba(0,0,0,0.08),0_16px_36px_-12px_rgba(0,0,0,0.22)]",
+              resolvedSide === "right" ? "origin-left" : "origin-right",
+              cardClassName
+            )}
+          >
+            {chapters[activeIndex].meta ? (
+              <div className="mb-1 text-xs font-medium tabular-nums opacity-70">
+                {chapters[activeIndex].meta}
+              </div>
+            ) : null}
+            <div className="truncate text-xs leading-snug font-semibold tracking-[-0.01em]">
+              {chapters[activeIndex].title}
             </div>
-          ) : null}
-          <div className="truncate text-sm leading-snug font-semibold tracking-[-0.01em]">
-            {chapters[activeIndex].title}
-          </div>
-          {chapters[activeIndex].description ? (
-            <p className="mt-1 line-clamp-3 text-sm leading-relaxed">
-              {chapters[activeIndex].description}
-            </p>
-          ) : null}
-        </motion.div>
-      ) : null}
+            {chapters[activeIndex].description ? (
+              <p className="mt-1 line-clamp-3 text-sm leading-relaxed opacity-80">
+                {chapters[activeIndex].description}
+              </p>
+            ) : null}
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 }

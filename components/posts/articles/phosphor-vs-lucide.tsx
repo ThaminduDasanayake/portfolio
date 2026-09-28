@@ -86,45 +86,57 @@ export function PhosphorVsLucideArticle() {
   const [copiedLink, setCopiedLink] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
+  // Scrollspy & Continuous Progress Calculation
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 280);
-    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Scrollspy to keep ChapterScrubber active index in sync with viewport
-  useEffect(() => {
-    const getSections = () =>
-      chapters
+      const sectionEls = chapters
         .map((c) => document.getElementById(c.id))
         .filter((el): el is HTMLElement => el !== null);
 
-    const handleScrollSpy = () => {
-      const sections = getSections();
-      if (sections.length === 0) return;
+      if (sectionEls.length === 0) return;
 
       const triggerPoint = window.scrollY + window.innerHeight * 0.35;
+      const offsets = sectionEls.map((el) => {
+        const rect = el.getBoundingClientRect();
+        return window.scrollY + rect.top;
+      });
+
+      let progress = 0;
       let activeIdx = 0;
 
-      for (let i = 0; i < sections.length; i++) {
-        if (sections[i].offsetTop <= triggerPoint) {
-          activeIdx = i;
+      if (triggerPoint <= offsets[0]) {
+        progress = 0;
+        activeIdx = 0;
+      } else if (triggerPoint >= offsets[offsets.length - 1]) {
+        progress = offsets.length - 1;
+        activeIdx = offsets.length - 1;
+      } else {
+        for (let i = 0; i < offsets.length - 1; i++) {
+          if (triggerPoint >= offsets[i] && triggerPoint < offsets[i + 1]) {
+            const range = offsets[i + 1] - offsets[i];
+            const dist = triggerPoint - offsets[i];
+            progress = i + (range > 0 ? dist / range : 0);
+            activeIdx = Math.round(progress);
+            break;
+          }
         }
       }
+
+      setScrollProgress(progress);
       setCurrentChapterIndex(activeIdx);
     };
 
-    handleScrollSpy();
-    window.addEventListener("scroll", handleScrollSpy, { passive: true });
-    window.addEventListener("resize", handleScrollSpy, { passive: true });
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleScrollSpy);
-      window.removeEventListener("resize", handleScrollSpy);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -208,10 +220,12 @@ export function PhosphorVsLucideArticle() {
       <ChapterScrubber
         chapters={chapters}
         currentIndex={currentChapterIndex}
+        scrollProgress={scrollProgress}
         onSelect={handleChapterSelect}
         side="left"
-        rowHeight={14}
-        peakLength={48}
+        rowHeight={10}
+        radius={2.5}
+        peakLength={52}
         restLength={12}
         className="fixed top-1/2 right-6 z-20 -translate-y-1/2"
         cardClassName={cn(
