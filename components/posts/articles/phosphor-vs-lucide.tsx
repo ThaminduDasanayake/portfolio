@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeftIcon,
+  ArrowSquareOutIcon,
   ChatCircleDotsIcon,
   CheckCircleIcon,
   CompassIcon,
@@ -247,21 +248,51 @@ export function PhosphorVsLucideArticle() {
       </button>
 
       <article className="relative z-1 mx-auto mt-[clamp(100px,22svh,240px)] mb-0 flex w-3xl flex-col gap-25 break-normal">
-        <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
-          <span className="font-mono text-xs">6 min read</span>
-
-          <h1 className="text-3xl leading-tight font-medium tracking-tight sm:text-4xl lg:text-5xl">
-            Why I Pick Phosphor Over Lucide
-          </h1>
+        <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+          <span>6 min read</span>
+          <a
+            href="https://phosphoricons.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/link inline-flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 transition-colors hover:border-current/60"
+          >
+            <img
+              src="https://phosphoricons.com/favicon-192.png"
+              alt="Phosphor Icons"
+              className="h-3.5 w-3.5 rounded-xs"
+            />
+            <span>phosphoricons.com</span>
+            <ArrowSquareOutIcon size={12} className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+          </a>
         </div>
 
+        <h1 className="text-3xl leading-tight font-medium tracking-tight sm:text-4xl lg:text-5xl">
+          Why I Pick Phosphor Over Lucide
+        </h1>
+
         <div className="flex w-full flex-col gap-14">
-          <p className="leading-relaxed">
+          <p className="text-lg leading-relaxed sm:text-xl">
             If you look at most new web apps or landing pages built recently,
-            you will notice they almost all look identical. Lucide is a great
-            default, but Phosphor gives you 6 different weights for every single
-            icon, making it so much easier to match your fonts and build cleaner
-            interfaces.
+            you will notice they almost all look identical.{" "}
+            <a
+              href="https://lucide.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-colors hover:text-acid"
+            >
+              Lucide
+            </a>{" "}
+            is a great default, but{" "}
+            <a
+              href="https://phosphoricons.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-colors hover:text-acid"
+            >
+              Phosphor
+            </a>{" "}
+            gives you 6 different weights for every single icon, making it so
+            much easier to match your fonts and build cleaner interfaces.
           </p>
 
           <section id="vibe-code" className="space-y-4 pt-2">
@@ -574,6 +605,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               weights right at your fingertips makes building UIs feel so much
               more flexible.
             </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-3 font-mono text-xs">
+              <a
+                href="https://phosphoricons.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-all hover:border-current/60 hover:text-acid"
+              >
+                <img
+                  src="https://phosphoricons.com/favicon-192.png"
+                  alt="Phosphor Icons"
+                  className="h-4 w-4 rounded-xs"
+                />
+                <span>Official Catalog &amp; Docs</span>
+                <ArrowSquareOutIcon
+                  size={13}
+                  className="transition-transform group-hover/res:-translate-y-0.5 group-hover/res:translate-x-0.5"
+                />
+              </a>
+
+              <a
+                href="https://github.com/phosphor-icons/react"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-all hover:border-current/60 hover:text-acid"
+              >
+                <TerminalWindowIcon size={16} weight="duotone" />
+                <span>@phosphor-icons/react on GitHub</span>
+                <ArrowSquareOutIcon
+                  size={13}
+                  className="transition-transform group-hover/res:-translate-y-0.5 group-hover/res:translate-x-0.5"
+                />
+              </a>
+            </div>
           </section>
         </div>
       </article>
