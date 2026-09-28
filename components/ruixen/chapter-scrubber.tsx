@@ -44,6 +44,7 @@ export interface ChapterScrubberProps {
   /** Accessible name for the rail. Default `"Chapters"`. */
   label?: string;
   className?: string;
+  cardClassName?: string;
 }
 
 const CARD_WIDTH = 260;
@@ -90,7 +91,7 @@ const Tick = React.memo(function Tick({
   });
   const opacity = useTransform(() => {
     const rise = strength.get() * bump(Math.abs(index - pointer.get()), radius);
-    const base = isCurrent ? 0.55 : 0.22;
+    const base = isCurrent ? 0.75 : 0.25;
     return base + rise * (1 - base);
   });
   const scaleY = useTransform(() => {
@@ -104,10 +105,7 @@ const Tick = React.memo(function Tick({
     <motion.span
       aria-hidden="true"
       style={{ width, opacity, scaleY }}
-      className={cn(
-        "block h-[2px] rounded-full",
-        isCurrent ? "bg-primary" : "bg-foreground",
-      )}
+      className="block h-0.5 rounded-full bg-current"
     />
   );
 });
@@ -124,6 +122,7 @@ export function ChapterScrubber({
   onSelect,
   label = "Chapters",
   className,
+  cardClassName,
 }: ChapterScrubberProps) {
   const prefersReducedMotion = useReducedMotion();
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -164,7 +163,7 @@ export function ChapterScrubber({
   React.useEffect(() => {
     onActiveChange?.(
       engaged ? chapters[activeIndex] : null,
-      engaged ? activeIndex : -1,
+      engaged ? activeIndex : -1
     );
   }, [engaged, activeIndex, chapters, onActiveChange]);
 
@@ -207,7 +206,7 @@ export function ChapterScrubber({
     const center = clamp(
       (p + 0.5) * rowHeight,
       half,
-      Math.max(half, totalHeight - half),
+      Math.max(half, totalHeight - half)
     );
     return center - half;
   });
@@ -215,7 +214,7 @@ export function ChapterScrubber({
   const cardX = useTransform(
     strength,
     [0, 1],
-    [resolvedSide === "right" ? -6 : 6, 0],
+    [resolvedSide === "right" ? -6 : 6, 0]
   );
 
   const engageAt = (pointerRow: number, activeAt: number) => {
@@ -322,8 +321,8 @@ export function ChapterScrubber({
               style={{ height: rowHeight }}
               className={cn(
                 "flex w-full items-center rounded-sm outline-none",
-                "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-                resolvedSide === "left" ? "justify-end" : "justify-start",
+                "focus-visible:outline-ring focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2",
+                resolvedSide === "left" ? "justify-end" : "justify-start"
               )}
             >
               <Tick
@@ -354,21 +353,22 @@ export function ChapterScrubber({
               : { right: peakLength + GAP }),
           }}
           className={cn(
-            "pointer-events-none absolute z-10 w-[260px] rounded-2xl border border-border bg-popover px-4 py-3.5 text-popover-foreground",
+            "border-border pointer-events-none absolute z-10 w-65 rounded-2xl border bg-current px-4 py-3.5 text-current",
             "shadow-[0_2px_6px_-2px_rgba(0,0,0,0.08),0_16px_36px_-12px_rgba(0,0,0,0.22)]",
             resolvedSide === "right" ? "origin-left" : "origin-right",
+            cardClassName
           )}
         >
           {chapters[activeIndex].meta ? (
-            <div className="mb-1 text-xs font-medium tabular-nums text-muted-foreground">
+            <div className="mb-1 text-xs font-medium tabular-nums">
               {chapters[activeIndex].meta}
             </div>
           ) : null}
-          <div className="truncate text-sm font-semibold leading-snug tracking-[-0.01em]">
+          <div className="truncate text-sm leading-snug font-semibold tracking-[-0.01em]">
             {chapters[activeIndex].title}
           </div>
           {chapters[activeIndex].description ? (
-            <p className="mt-1 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-1 line-clamp-3 text-sm leading-relaxed">
               {chapters[activeIndex].description}
             </p>
           ) : null}

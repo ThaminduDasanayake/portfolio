@@ -40,26 +40,42 @@ const chapters: Chapter[] = [
   {
     id: "vibe-code",
     title: "1. The AI Vibe-Coding Monoculture",
-    // description: "Mapped the workspace.",
-    // meta: "00:00",
+    // description: "Why uniform 2px stroke icons homogenize modern AI software.",
+    // meta: "01",
   },
   {
     id: "weights",
     title: "2. The 6-Weight Superpower",
-    // description: "Confirmed the flicker.",
-    // meta: "00:14",
+    // description: "From thin to duotone across 1,200+ icons with live switcher.",
+    // meta: "02",
   },
   {
     id: "parity",
-    title: "3. Typographic Parity & Visual Hierarchy",
-    // description: "Raised-cosine wave, no seams.",
-    // meta: "00:52",
+    title: "3. Typographic Parity",
+    // description:
+    //   "Balancing optical icon weights with typography font hierarchy.",
+    // meta: "03",
   },
   {
-    id: "ship",
-    title: "open the PR",
-    // description: "Opened #11148 and requested review.",
-    // meta: "02:55",
+    id: "duotone-fill",
+    title: "4. Expressive UI States",
+    // description:
+    //   "Native state transitions and depth using fill and duotone paths.",
+    // meta: "04",
+  },
+  {
+    id: "theming",
+    title: "5. Zero-Boilerplate Theming",
+    // description:
+    //   "Configuring global subtree defaults using IconContext.Provider.",
+    // meta: "05",
+  },
+  {
+    id: "verdict",
+    title: "6. The Verdict",
+    // description:
+    //   "Crafting bespoke, handcrafted design systems beyond AI templates.",
+    // meta: "06",
   },
 ];
 
@@ -69,6 +85,7 @@ export function PhosphorVsLucideArticle() {
   const [isInverted, setIsInverted] = useState(false);
   const [copiedLink, setCopiedLink] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,6 +94,38 @@ export function PhosphorVsLucideArticle() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Scrollspy to keep ChapterScrubber active index in sync with viewport
+  useEffect(() => {
+    const getSections = () =>
+      chapters
+        .map((c) => document.getElementById(c.id))
+        .filter((el): el is HTMLElement => el !== null);
+
+    const handleScrollSpy = () => {
+      const sections = getSections();
+      if (sections.length === 0) return;
+
+      const triggerPoint = window.scrollY + window.innerHeight * 0.35;
+      let activeIdx = 0;
+
+      for (let i = 0; i < sections.length; i++) {
+        if (sections[i].offsetTop <= triggerPoint) {
+          activeIdx = i;
+        }
+      }
+      setCurrentChapterIndex(activeIdx);
+    };
+
+    handleScrollSpy();
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
+    window.addEventListener("resize", handleScrollSpy, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollSpy);
+      window.removeEventListener("resize", handleScrollSpy);
+    };
   }, []);
 
   // Sync overscroll rubber-band bounce with the active background
@@ -112,6 +161,13 @@ export function PhosphorVsLucideArticle() {
   const scrollToTop = () => {
     if (typeof window !== "undefined") {
       window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const handleChapterSelect = (chapter: Chapter) => {
+    const el = document.getElementById(chapter.id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -151,7 +207,19 @@ export function PhosphorVsLucideArticle() {
 
       <ChapterScrubber
         chapters={chapters}
-        className="fixed top-1/2 right-6 z-10"
+        currentIndex={currentChapterIndex}
+        onSelect={handleChapterSelect}
+        side="left"
+        rowHeight={14}
+        peakLength={48}
+        restLength={12}
+        className="fixed top-1/2 right-6 z-20 -translate-y-1/2"
+        cardClassName={cn(
+          "backdrop-blur-md shadow-2xl",
+          isInverted
+            ? "bg-sand/95 text-moss border-sand/30"
+            : "bg-moss/95 text-sand border-moss/30"
+        )}
       />
 
       <button
@@ -394,7 +462,7 @@ export function PhosphorVsLucideArticle() {
           </section>
 
           {/* 4. Duotone & Fill as Native UI States */}
-          <section className="space-y-6 pt-4">
+          <section id="duotone-fill" className="space-y-6 pt-4">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
               4. Duotone &amp; Fill for Expressive States
             </h2>
@@ -438,7 +506,7 @@ export function FavoriteButton({ isFavorited }: { isFavorited: boolean }) {
           </section>
 
           {/* 5. Global Theming with IconContext */}
-          <section className="space-y-6 pt-4">
+          <section id="theming" className="space-y-6 pt-4">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
               5. Zero-Boilerplate Global Theming
             </h2>
@@ -482,7 +550,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </section>
 
           {/* 6. The Verdict */}
-          <section className="space-y-6 pt-4">
+          <section id="verdict" className="space-y-6 pt-4">
             <h2 className="text-xl font-medium tracking-tight sm:text-2xl">
               6. The Verdict
             </h2>
