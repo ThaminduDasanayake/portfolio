@@ -262,7 +262,10 @@ export function PhosphorVsLucideArticle() {
               className="h-3.5 w-3.5 rounded-xs"
             />
             <span>phosphoricons.com</span>
-            <ArrowSquareOutIcon size={12} className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+            <ArrowSquareOutIcon
+              size={12}
+              className="transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5"
+            />
           </a>
         </div>
 
@@ -278,7 +281,7 @@ export function PhosphorVsLucideArticle() {
               href="https://lucide.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 transition-colors hover:text-acid"
+              className="hover:text-acid underline underline-offset-4 transition-colors"
             >
               Lucide
             </a>{" "}
@@ -287,7 +290,7 @@ export function PhosphorVsLucideArticle() {
               href="https://phosphoricons.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 transition-colors hover:text-acid"
+              className="hover:text-acid underline underline-offset-4 transition-colors"
             >
               Phosphor
             </a>{" "}
@@ -611,7 +614,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://phosphoricons.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-all hover:border-current/60 hover:text-acid"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
               >
                 <img
                   src="https://phosphoricons.com/favicon-192.png"
@@ -621,7 +624,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <span>Official Catalog &amp; Docs</span>
                 <ArrowSquareOutIcon
                   size={13}
-                  className="transition-transform group-hover/res:-translate-y-0.5 group-hover/res:translate-x-0.5"
+                  className="transition-transform group-hover/res:translate-x-0.5 group-hover/res:-translate-y-0.5"
                 />
               </a>
 
@@ -629,13 +632,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://github.com/phosphor-icons/react"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-all hover:border-current/60 hover:text-acid"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
               >
-                <TerminalWindowIcon size={16} weight="duotone" />
+                <img
+                  src="/logos/github.svg"
+                  alt="GitHub"
+                  className={cn("h-4 w-4", isInverted && "invert")}
+                />
                 <span>@phosphor-icons/react on GitHub</span>
                 <ArrowSquareOutIcon
                   size={13}
-                  className="transition-transform group-hover/res:-translate-y-0.5 group-hover/res:translate-x-0.5"
+                  className="transition-transform group-hover/res:translate-x-0.5 group-hover/res:-translate-y-0.5"
                 />
               </a>
             </div>
