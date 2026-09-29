@@ -11,13 +11,13 @@ export interface Project {
   type?: "interactive-widget" | "macbook" | "glodwater" | "image";
 }
 
-export interface SimpleRead {
+export interface SimplePost {
   slug: string;
   title: string;
   date: string;
   readTime: string;
-  description: string;
-  tags: string[];
+  description?: string;
+  tags?: string[];
 }
 
 export interface TechSkill {
@@ -41,6 +41,7 @@ export interface ExperienceItem {
 
 export const PERSONAL_INFO = {
   name: "Thamindu Dasanayake",
+  link: "https://thamindu-dasanayake.vercel.app/",
   handle: "@thamindud",
   brand: "THAMINDU",
   location: "Colombo, Sri Lanka",
@@ -62,31 +63,31 @@ export const TECH_STACK: TechStackCategory[] = [
   {
     category: "Frontend",
     skills: [
-      { name: "Next.js", icon: "/nextjs.svg", invertInDark: true },
-      { name: "React", icon: "/react.svg" },
-      { name: "TypeScript", icon: "/typescript.svg" },
-      { name: "Tailwind CSS", icon: "/tailwind.svg" },
-      { name: "JavaScript", icon: "/javascript.svg" },
-      { name: "GSAP", icon: "/gsap.svg" },
-      { name: "Three.js", icon: "/threejs.svg", invertInDark: true },
+      { name: "Next.js", icon: "logos/nextjs.svg", invertInDark: true },
+      { name: "React", icon: "logos/react.svg" },
+      { name: "TypeScript", icon: "logos/typescript.svg" },
+      { name: "Tailwind CSS", icon: "logos/tailwind.svg" },
+      { name: "JavaScript", icon: "logos/javascript.svg" },
+      { name: "GSAP", icon: "logos/gsap.svg" },
+      { name: "Three.js", icon: "logos/threejs.svg", invertInDark: true },
     ],
   },
   {
     category: "Backend & Databases",
     skills: [
-      { name: "Node.js", icon: "/nodejs.svg" },
-      { name: "Express", icon: "/express.svg", invertInDark: true },
-      { name: "PostgreSQL", icon: "/postgresql.svg" },
-      { name: "MongoDB", icon: "/mongodb.svg" },
-      { name: "MySQL", icon: "/mysql.svg" },
-      { name: "Firebase", icon: "/firebase.svg" },
+      { name: "Node.js", icon: "logos/nodejs.svg" },
+      { name: "Express", icon: "logos/express.svg", invertInDark: true },
+      { name: "PostgreSQL", icon: "logos/postgresql.svg" },
+      { name: "MongoDB", icon: "logos/mongodb.svg" },
+      { name: "MySQL", icon: "logos/mysql.svg" },
+      { name: "Firebase", icon: "logos/firebase.svg" },
     ],
   },
   {
     category: "AI & Systems",
     skills: [
-      { name: "Python", icon: "/python.svg" },
-      { name: "Streamlit", icon: "/streamlit.svg" },
+      { name: "Python", icon: "logos/python.svg" },
+      { name: "Streamlit", icon: "logos/streamlit.svg" },
       { name: "LangChain" },
       { name: "LangGraph" },
       { name: "Ollama" },
@@ -96,34 +97,28 @@ export const TECH_STACK: TechStackCategory[] = [
   {
     category: "Tools & DevOps",
     skills: [
-      { name: "Docker", icon: "/docker.svg" },
-      { name: "Git", icon: "/git.svg" },
-      { name: "GitHub", icon: "/github.svg", invertInDark: true },
-      { name: "Vercel", icon: "/vercel.svg", invertInDark: true },
-      { name: "Postman", icon: "/postman.svg" },
-      { name: "Sanity", icon: "/sanity.svg" },
+      { name: "Docker", icon: "logos/docker.svg" },
+      { name: "Git", icon: "logos/git.svg" },
+      { name: "GitHub", icon: "logos/github.svg", invertInDark: true },
+      { name: "Vercel", icon: "logos/vercel.svg", invertInDark: true },
+      { name: "Postman", icon: "logos/postman.svg" },
+      { name: "Sanity", icon: "logos/sanity.svg" },
     ],
   },
 ];
 
-export const SIMPLE_READS: SimpleRead[] = [
+export const SIMPLE_POSTS: SimplePost[] = [
   {
-    slug: "on-building-with-llms",
-    title: "On Building AI-Native Apps: Beyond Simple Prompt Wrappers",
+    slug: "phosphor-over-lucide",
+    title: "Why I Pick Phosphor Over Lucide",
     date: "Sep 2026",
-    readTime: "4 min read",
-    description:
-      "Why structured outputs, deterministic tool calling, and state graphs make or break real-world LLM products.",
-    tags: ["AI", "Architecture", "LangGraph"],
+    readTime: "6 min read",
   },
   {
-    slug: "on-minimal-interfaces",
-    title: "The Quiet Power of Plain-Text and Minimalist Interfaces",
-    date: "Aug 2026",
-    readTime: "3 min read",
-    description:
-      "How reducing visual noise, excessive animations, and bloated frameworks leads to faster software and clarity of thought.",
-    tags: ["Design", "Engineering", "UX"],
+    slug: "better-auth-github-setup",
+    title: "Setting Up Better Auth with GitHub OAuth",
+    date: "Sep 2026",
+    readTime: "5 min read",
   },
 ];
 

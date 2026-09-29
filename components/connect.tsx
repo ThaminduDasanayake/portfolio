@@ -5,7 +5,7 @@ import Image from "next/image";
 import { CopyIcon, CheckIcon } from "@phosphor-icons/react";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/data";
 
-export function MinimalConnect() {
+export function Connect() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = async () => {
