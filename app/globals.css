@@ -27,15 +27,13 @@
   --moss: oklch(0.36 0.03 116.91);
   --sand: oklch(0.76 0.02 8.35);
   --acid: oklch(0.87 0.17 120.84);
-  --daintree-green: #052A30;
-  --mint-green: #A7FFDC;
-
+  --daintree-green: #052a30;
+  --mint-green: #a7ffdc;
 
   --page-bg: var(--background);
   --page-fg: var(--foreground);
   --selection-bg: var(--accent-foreground);
   --selection-fg: var(--accent);
-
 }
 
 :root:has([data-theme="emerald"]) {
@@ -56,7 +54,6 @@
   background-color: var(--selection-bg);
   color: var(--selection-fg);
 }
-
 
 @theme inline {
   --font-sans: var(--font-sans);
@@ -115,7 +112,9 @@
   body {
     background-color: var(--page-bg, var(--background));
     color: var(--page-fg, var(--foreground));
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   button:not(:disabled),
@@ -186,4 +185,3 @@
 .prose-custom a:hover {
   opacity: 0.75;
 }
-

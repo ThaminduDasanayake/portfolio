@@ -59,7 +59,11 @@ export default function PostsIndexPage() {
                     href={`/posts/${post.slug}`}
                     className="group inline-flex items-center gap-1.5"
                   >
-                    <AnimatedUnderline as="h2" showTrack className="text-sm sm:text-base">
+                    <AnimatedUnderline
+                      as="h2"
+                      showTrack
+                      className="text-sm sm:text-base"
+                    >
                       <span>{post.title}</span>
                     </AnimatedUnderline>
                     <ArrowUpRightIcon

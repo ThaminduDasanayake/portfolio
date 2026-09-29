@@ -1,8 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface AnimatedUnderlineProps
-  extends React.HTMLAttributes<HTMLElement> {
+export interface AnimatedUnderlineProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
   /** Base track line below the text. Defaults to false. */
   showTrack?: boolean;
