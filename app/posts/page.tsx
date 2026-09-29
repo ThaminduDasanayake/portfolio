@@ -6,6 +6,7 @@ import {
   BooksIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { SIMPLE_POSTS } from "@/lib/data";
+import { AnimatedUnderline } from "@/components/ui/animated-underline";
 
 export const metadata: Metadata = {
   title: "Notes & Posts — Thamindu Dasanayake",
@@ -49,28 +50,29 @@ export default function PostsIndexPage() {
         <div className="divide-border/40 divide-y">
           {SIMPLE_POSTS.map((post) => {
             return (
-              <article key={post.slug} className="py-5 first:pt-0 last:pb-0">
-                <Link
-                  href={`/posts/${post.slug}`}
-                  className="group flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between"
-                >
-                  <div className="flex items-center gap-2">
-                    <h2 className="decoration-border group-hover:decoration-foreground flex items-center gap-1.5 text-base font-normal tracking-tight underline-offset-4 transition-colors hover:underline sm:text-lg">
+              <div
+                key={post.slug}
+                className="flex items-baseline justify-between gap-4 py-4 first:pt-0 last:pb-0"
+              >
+                <div className="inline-flex min-w-0 items-center">
+                  <Link
+                    href={`/posts/${post.slug}`}
+                    className="group inline-flex items-center gap-1.5"
+                  >
+                    <AnimatedUnderline as="h2" showTrack className="text-sm sm:text-base">
                       <span>{post.title}</span>
-                      <ArrowUpRightIcon
-                        size={14}
-                        className="text-muted-foreground group-hover:text-foreground shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      />
-                    </h2>
-                  </div>
+                    </AnimatedUnderline>
+                    <ArrowUpRightIcon
+                      size={14}
+                      className="text-muted-foreground group-hover:text-foreground shrink-0 opacity-0 transition-all duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100"
+                    />
+                  </Link>
+                </div>
 
-                  <div className="flex items-center gap-3">
-                    <span className="text-muted-foreground shrink-0 font-mono text-xs">
-                      {post.readTime}
-                    </span>
-                  </div>
-                </Link>
-              </article>
+                <span className="text-muted-foreground shrink-0 font-mono text-xs tabular-nums sm:text-sm">
+                  {post.readTime}
+                </span>
+              </div>
             );
           })}
         </div>
