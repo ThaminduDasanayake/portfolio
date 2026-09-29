@@ -33,17 +33,28 @@
 
   --page-bg: var(--background);
   --page-fg: var(--foreground);
+  --selection-bg: var(--accent-foreground);
+  --selection-fg: var(--accent);
 
 }
 
 :root:has([data-theme="emerald"]) {
   --page-bg: var(--mint-green);
   --page-fg: var(--daintree-green);
+  --selection-bg: var(--daintree-green);
+  --selection-fg: var(--mint-green);
 }
 
 :root:has([data-theme="dark-emerald"]) {
   --page-bg: var(--daintree-green);
   --page-fg: var(--mint-green);
+  --selection-bg: var(--mint-green);
+  --selection-fg: var(--daintree-green);
+}
+
+::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 

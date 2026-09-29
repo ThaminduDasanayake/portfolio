@@ -61,10 +61,7 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body
-        suppressHydrationWarning
-        className="selection:bg-accent-foreground selection:text-accent min-h-screen"
-      >
+      <body suppressHydrationWarning className="min-h-screen">
         {children}
       </body>
     </html>
