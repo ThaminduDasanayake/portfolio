@@ -24,7 +24,7 @@ export function BetterAuthGuideArticle() {
     <main
       data-inverted={isInverted ? "true" : "false"}
       data-theme={isInverted ? "emerald" : "dark-emerald"}
-      className="min-h-svh"
+      className="w-full min-w-80 overflow-x-clip"
     >
       <header className="relative z-4 h-11">
         <div className="fixed top-5 right-5 flex items-center gap-4">
@@ -34,9 +34,8 @@ export function BetterAuthGuideArticle() {
           />
         </div>
       </header>
-
-      <div className="mx-auto w-full max-w-5xl px-6 pt-6 pb-28 sm:pt-10 lg:px-8">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
+      <section className="relative min-h-186 w-full pt-49 pb-28">
+        <div className="relative mx-auto flex min-h-0 w-135 max-w-[calc(100%-60px)] flex-col items-start gap-9">
           {/* Sticky Left TOC Sidebar */}
           <TableOfContents items={TOC_ITEMS} postIndex="001" />
 
@@ -53,7 +52,7 @@ export function BetterAuthGuideArticle() {
               </h1>
 
               <div className="font-mono text-xs opacity-60">
-                <span>Published Sep 2026, 5 min read</span>
+                <span>Published 2 Sep 2026, 5 min read</span>
               </div>
 
               <p className="pt-2 text-base leading-relaxed opacity-85 sm:text-lg">
@@ -335,7 +334,8 @@ export function UserAccountNav() {
             </section>
           </article>
         </div>
-      </div>
+      </section>
+      <footer></footer>
     </main>
   );
 }

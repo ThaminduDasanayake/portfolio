@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowUDownLeftIcon } from "@phosphor-icons/react";
+import { cn } from "@/lib/utils";
 
 export interface TocItem {
   id: string;
@@ -24,43 +25,28 @@ export function TableOfContents({
   const [activeId, setActiveId] = useState<string>(items[0]?.id || "");
 
   useEffect(() => {
-    if (items.length === 0) return;
-
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 160;
-      let current = items[0].id;
-
-      for (let i = 0; i < items.length; i++) {
-        const el = document.getElementById(items[i].id);
-        if (el && el.offsetTop <= scrollPosition) {
-          current = items[i].id;
-        }
-      }
-
-      setActiveId(current);
+      const current = items.findLast(
+        (item) =>
+          (document.getElementById(item.id)?.getBoundingClientRect().top ??
+            1) <= 160
+      );
+      if (current) setActiveId(current.id);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [items]);
 
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -90;
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
-    }
-  };
-
   return (
-    <aside
-      className={`space-y-6 self-start font-sans select-none lg:sticky lg:top-24 ${className}`}
+    <nav
+      className={cn(
+        "fixed top-49 bottom-auto left-16 z-5 flex w-auto max-w-50 flex-col gap-3.5",
+        className
+      )}
       aria-label="Table of contents"
     >
-      <div className="flex items-center gap-2 font-mono text-xs opacity-60">
+      <h2 className="flex items-center gap-1.5 font-mono text-xs leading-4.5 opacity-60">
         <Link
           href="/posts"
           className="inline-flex items-center gap-1.5 transition-opacity hover:opacity-100"
@@ -69,28 +55,31 @@ export function TableOfContents({
           <ArrowUDownLeftIcon />
         </Link>
         <span>{postIndex}</span>
-      </div>
+      </h2>
 
-      {/* Nav List */}
-      <nav className="flex flex-col space-y-2.5 text-left text-sm">
+      <ol className="flex list-none flex-col gap-px">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
-            <button
+            <li
               key={item.id}
-              type="button"
-              onClick={() => scrollToSection(item.id)}
-              className={`flex cursor-pointer items-baseline gap-2 py-0.5 text-left transition-all duration-200 ${
+              className={cn(
+                "cursor-pointer text-left text-xs transition-all duration-200",
                 isActive
-                  ? "translate-x-1 font-medium opacity-100"
-                  : "opacity-40 hover:opacity-80"
-              }`}
+                  ? "font-medium opacity-100"
+                  : "opacity-40 hover:opacity-100"
+              )}
             >
-              <span className="leading-snug">{item.title}</span>
-            </button>
+              <a
+                href={`#${item.id}`}
+                className="relative inline-block leading-5.5"
+              >
+                <span className="leading-snug">{item.title}</span>
+              </a>
+            </li>
           );
         })}
-      </nav>
-    </aside>
+      </ol>
+    </nav>
   );
 }
