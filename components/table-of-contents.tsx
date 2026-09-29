@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { ArrowUDownLeftIcon } from "@phosphor-icons/react";
 
 export interface TocItem {
   id: string;
@@ -56,23 +57,22 @@ export function TableOfContents({
 
   return (
     <aside
-      className={`font-sans select-none lg:sticky lg:top-24 self-start space-y-6 ${className}`}
+      className={`space-y-6 self-start font-sans select-none lg:sticky lg:top-24 ${className}`}
       aria-label="Table of contents"
     >
-      {/* Index indicator matching reference image (e.g. ↶ 002) */}
       <div className="flex items-center gap-2 font-mono text-xs opacity-60">
         <Link
           href="/posts"
-          className="inline-flex items-center gap-1.5 hover:opacity-100 transition-opacity"
+          className="inline-flex items-center gap-1.5 transition-opacity hover:opacity-100"
           title="Back to posts"
         >
-          <span>↶</span>
-          <span>{postIndex}</span>
+          <ArrowUDownLeftIcon />
         </Link>
+        <span>{postIndex}</span>
       </div>
 
       {/* Nav List */}
-      <nav className="flex flex-col space-y-2.5 text-sm">
+      <nav className="flex flex-col space-y-2.5 text-left text-sm">
         {items.map((item) => {
           const isActive = activeId === item.id;
           return (
@@ -80,17 +80,12 @@ export function TableOfContents({
               key={item.id}
               type="button"
               onClick={() => scrollToSection(item.id)}
-              className={`text-left transition-all duration-200 cursor-pointer flex items-baseline gap-2 py-0.5 ${
+              className={`flex cursor-pointer items-baseline gap-2 py-0.5 text-left transition-all duration-200 ${
                 isActive
-                  ? "opacity-100 font-medium translate-x-1"
+                  ? "translate-x-1 font-medium opacity-100"
                   : "opacity-40 hover:opacity-80"
               }`}
             >
-              {item.number && (
-                <span className="font-mono text-xs opacity-60">
-                  {item.number}
-                </span>
-              )}
               <span className="leading-snug">{item.title}</span>
             </button>
           );

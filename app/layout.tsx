@@ -63,7 +63,7 @@ export default function RootLayout({
     >
       <body
         suppressHydrationWarning
-        className="bg-background text-foreground selection:bg-accent-foreground selection:text-accent min-h-screen"
+        className="selection:bg-accent-foreground selection:text-accent min-h-screen"
       >
         {children}
       </body>

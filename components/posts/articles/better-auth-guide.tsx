@@ -1,9 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { TableOfContents, TocItem } from "@/components/table-of-contents";
 import { CodeBlock } from "@/components/code-block";
+import { ColorToggle } from "@/components/color-toggle";
 
 const TOC_ITEMS: TocItem[] = [
   { id: "overview", title: "Overview" },
@@ -17,12 +18,27 @@ const TOC_ITEMS: TocItem[] = [
 ];
 
 export function BetterAuthGuideArticle() {
+  const [isInverted, setIsInverted] = useState(false);
+
   return (
-    <div className="min-h-screen bg-[#052A30] text-[#A7FFDC] transition-colors duration-500 group-data-[inverted=true]/article:bg-[#A7FFDC] group-data-[inverted=true]/article:text-[#052A30]">
+    <main
+      data-inverted={isInverted ? "true" : "false"}
+      data-theme={isInverted ? "emerald" : "dark-emerald"}
+      className="min-h-svh"
+    >
+      <header className="relative z-4 h-11">
+        <div className="fixed top-5 right-5 flex items-center gap-4">
+          <ColorToggle
+            isInverted={isInverted}
+            onToggle={() => setIsInverted((prev) => !prev)}
+          />
+        </div>
+      </header>
+
       <div className="mx-auto w-full max-w-5xl px-6 pt-6 pb-28 sm:pt-10 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[200px_1fr] lg:gap-16">
           {/* Sticky Left TOC Sidebar */}
-          <TableOfContents items={TOC_ITEMS} postIndex="002" />
+          <TableOfContents items={TOC_ITEMS} postIndex="001" />
 
           {/* Main Content Column */}
           <article className="prose-custom max-w-2xl space-y-16">
@@ -320,6 +336,6 @@ export function UserAccountNav() {
           </article>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

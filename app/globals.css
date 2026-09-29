@@ -27,7 +27,25 @@
   --moss: oklch(0.36 0.03 116.91);
   --sand: oklch(0.76 0.02 8.35);
   --acid: oklch(0.87 0.17 120.84);
+  --daintree-green: #052A30;
+  --mint-green: #A7FFDC;
+
+
+  --page-bg: var(--background);
+  --page-fg: var(--foreground);
+
 }
+
+:root:has([data-theme="emerald"]) {
+  --page-bg: var(--mint-green);
+  --page-fg: var(--daintree-green);
+}
+
+:root:has([data-theme="dark-emerald"]) {
+  --page-bg: var(--daintree-green);
+  --page-fg: var(--mint-green);
+}
+
 
 @theme inline {
   --font-sans: var(--font-sans);
@@ -54,10 +72,10 @@
   --color-ring: var(--ring);
 
   /* Dual Color Post Themes */
-  --color-post-bg: var(--post-bg, var(--background));
-  --color-post-fg: var(--post-fg, var(--foreground));
-  --color-post-muted: color-mix(in srgb, var(--color-post-fg) 70%, transparent);
-  --color-post-border: color-mix(in srgb, var(--color-post-fg) 18%, transparent);
+  /*--color-post-bg: var(--post-bg, var(--background));*/
+  /*--color-post-fg: var(--post-fg, var(--foreground));*/
+  /*--color-post-muted: color-mix(in srgb, var(--color-post-fg) 70%, transparent);*/
+  /*--color-post-border: color-mix(in srgb, var(--color-post-fg) 18%, transparent);*/
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -77,14 +95,18 @@
   }
 
   html {
+    /*overscroll-behavior-y: none;*/
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
-    color-scheme: dark;
+    /*color-scheme: dark;*/
     @apply font-sans;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--page-bg, var(--background));
+    color: var(--page-fg, var(--foreground));
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   button:not(:disabled),
