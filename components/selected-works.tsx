@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { SELECTED_PROJECTS, ARCHIVE_PROJECTS } from "@/lib/data";
+import { ARCHIVE_PROJECTS, SELECTED_PROJECTS } from "@/lib/data";
 
 interface SelectedWorksProps {
   onOpenArchive: () => void;
@@ -49,7 +49,7 @@ export function SelectedWorks({ onOpenArchive }: SelectedWorksProps) {
                       {project.title}
                     </h3>
                     <span className="shrink-0 font-mono text-base font-normal tabular-nums sm:text-lg">
-                      {project.year}
+                      {project.timeline}
                     </span>
                   </div>
                   <p className="text-base font-normal sm:text-lg">
