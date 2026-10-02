@@ -9,6 +9,7 @@ import { Posts } from "@/components/posts";
 import { Experience } from "@/components/experience";
 import { Connect } from "@/components/connect";
 import { ArchiveModal } from "@/components/archive-modal";
+import { Separator } from "@/components/ui/separator";
 
 export default function HomePage() {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
@@ -19,10 +20,15 @@ export default function HomePage() {
 
       <div className="relative mx-auto flex w-135 flex-col items-start gap-8 px-0 pt-30 pb-28">
         <Header />
+        <Separator />
         <Projects onOpenArchive={() => setIsArchiveOpen(true)} />
+        <Separator />
         <Stack />
+        <Separator />
         <Experience />
+        <Separator />
         <Posts />
+        <Separator />
         <Connect />
       </div>
 
