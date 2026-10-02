@@ -19,7 +19,7 @@ export function Connect() {
   };
 
   return (
-    <section className="border-border/40 space-y-4 border-t pt-4">
+    <section className="space-y-4 pt-4">
       <h2 className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
         Connect
       </h2>

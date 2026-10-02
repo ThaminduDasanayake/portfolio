@@ -25,7 +25,7 @@ export function Projects({ onOpenArchive }: MinimalProjectsProps) {
         </button>
       </div>
 
-      <div className="divide-border/40 divide-y">
+      <div className="space-y-1.5">
         {SELECTED_PROJECTS.map((project) => (
           <div
             key={project.title}
