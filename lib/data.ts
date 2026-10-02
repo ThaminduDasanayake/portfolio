@@ -1,8 +1,7 @@
 export interface Project {
   title: string;
-  year: string;
+  timeline: string;
   category: string;
-  description: string;
   tags: string[];
   demoUrl?: string;
   repoUrl?: string;
@@ -125,10 +124,8 @@ export const SIMPLE_POSTS: SimplePost[] = [
 export const SELECTED_PROJECTS: Project[] = [
   {
     title: "Stock Tracker SaaS (Signalist)",
-    year: "2025",
+    timeline: "2025",
     category: "Full-Stack SaaS",
-    description:
-      "Enterprise asset monitoring platform with automated Inngest background cron workers, MongoDB persistence, and transactional email alerts.",
     tags: ["Next.js", "Inngest", "MongoDB", "Nodemailer"],
     demoUrl: "https://stock-tracker-app-signalist.vercel.app",
     repoUrl: "https://github.com/ThaminduDasanayake/stock-tracker-app",
@@ -137,10 +134,8 @@ export const SELECTED_PROJECTS: Project[] = [
   },
   {
     title: "MacBook Landing Page",
-    year: "2024",
+    timeline: "2024",
     category: "Creative Dev & Animation",
-    description:
-      "High-performance interactive 3D/GSAP landing experience showcasing MacBook hardware aesthetics and precision typography.",
     tags: ["React", "TypeScript", "GSAP", "Tailwind CSS"],
     demoUrl: "https://gsap-mac-book-landing.vercel.app",
     repoUrl: "https://github.com/ThaminduDasanayake/GSAP_MacBook_landing",
@@ -149,10 +144,9 @@ export const SELECTED_PROJECTS: Project[] = [
   },
   {
     title: "Roomify 3D Interior AI",
-    year: "2024",
+    timeline: "2024",
     category: "AI & Spatial Rendering",
-    description:
-      "AI-powered spatial visualization platform converting 2D blueprints and floor plans into high-fidelity 3D interior renders.",
+
     tags: ["React Router", "TypeScript", "Puter.js", "Tailwind CSS"],
     demoUrl: "https://roomify-2.vercel.app",
     repoUrl: "https://github.com/ThaminduDasanayake/roomify",
@@ -161,10 +155,8 @@ export const SELECTED_PROJECTS: Project[] = [
   },
   {
     title: "Opaline Cocktail Lounge",
-    year: "2024",
+    timeline: "2024",
     category: "Hospitality & Creative Motion",
-    description:
-      "Cinematic web experience for a luxury cocktail lounge with fluid page transitions, typography stagger effects, and smooth scroll choreography.",
     tags: ["React", "Vite.js", "GSAP", "Tailwind CSS"],
     demoUrl: "https://opaline-cocktail-bar.vercel.app",
     repoUrl: "https://github.com/ThaminduDasanayake/cocktails",

@@ -9,21 +9,26 @@ import { Posts } from "@/components/posts";
 import { Experience } from "@/components/experience";
 import { Connect } from "@/components/connect";
 import { ArchiveModal } from "@/components/archive-modal";
+import { Separator } from "@/components/ui/separator";
 
 export default function HomePage() {
   const [isArchiveOpen, setIsArchiveOpen] = useState(false);
 
   return (
-    <main className="bg-background text-foreground relative min-h-screen">
-      {/* Pinned Scroll Progress Indicator */}
+    <main className="bg-background text-foreground min-h-screen min-w-80 overflow-x-clip">
       <ScrollProgress className="bg-muted-foreground/60 fixed top-0 z-50 h-0.5" />
 
-      <div className="mx-auto max-w-xl space-y-12 px-6 py-16 sm:space-y-16 sm:py-24">
+      <div className="relative mx-auto flex w-135 flex-col items-start gap-8 px-0 pt-30 pb-28">
         <Header />
+        <Separator />
         <Projects onOpenArchive={() => setIsArchiveOpen(true)} />
+        <Separator />
         <Stack />
+        <Separator />
         <Experience />
+        <Separator />
         <Posts />
+        <Separator />
         <Connect />
       </div>
 
