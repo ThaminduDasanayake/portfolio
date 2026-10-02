@@ -18,15 +18,6 @@ export function Header() {
             priority
           />
         </div>
-
-        {/* Live Status indicator */}
-        <div className="border-border/60 bg-muted/30 text-muted-foreground flex items-center gap-2 rounded-full border px-3 py-1 text-xs">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-          </span>
-          <span className="font-mono">{PERSONAL_INFO.location}</span>
-        </div>
       </div>
 
       {/* Name and Bio */}
