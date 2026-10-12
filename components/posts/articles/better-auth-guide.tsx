@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
+import { ArrowUDownLeftIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { TableOfContents, TocItem } from "@/components/table-of-contents";
 import { CodeBlock } from "@/components/code-block";
@@ -27,20 +29,33 @@ export function BetterAuthGuideArticle() {
       className="w-full min-w-80 overflow-x-clip"
     >
       <header className="relative z-4 h-11">
-        <div className="fixed top-5 right-5 flex items-center gap-4">
+        {/* Mobile / Tablet Back Button (TOC handles this on desktop) */}
+        <div className="fixed top-5 left-5 z-2 leading-3 lg:hidden">
+          <Link
+            href="/posts"
+            className="group/btn inline-flex items-center gap-1.5 font-mono text-xs tracking-tight opacity-70 transition-opacity hover:opacity-100"
+            title="Back to all posts"
+          >
+            <ArrowUDownLeftIcon className="transition-transform group-hover/btn:-translate-x-0.5" />
+            <span>001</span>
+          </Link>
+        </div>
+
+        <div className="fixed top-5 right-5 z-2 flex items-center gap-4">
           <ColorToggle
             isInverted={isInverted}
             onToggle={() => setIsInverted((prev) => !prev)}
           />
         </div>
       </header>
-      <section className="relative min-h-186 w-full pt-49 pb-28">
-        <div className="relative mx-auto flex min-h-0 w-135 max-w-[calc(100%-60px)] flex-col items-start gap-9">
+
+      <section className="relative min-h-186 w-full pt-20 sm:pt-28 md:pt-36 lg:pt-49 pb-20 sm:pb-28">
+        <div className="relative mx-auto flex min-h-0 w-full max-w-xl px-5 sm:px-8 lg:w-135 lg:max-w-none lg:px-0 flex-col items-start gap-9">
           {/* Sticky Left TOC Sidebar */}
           <TableOfContents items={TOC_ITEMS} postIndex="001" />
 
           {/* Main Content Column */}
-          <article className="prose-custom max-w-2xl space-y-16">
+          <article className="prose-custom w-full max-w-2xl space-y-12 sm:space-y-16">
             <motion.header
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}

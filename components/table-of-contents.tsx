@@ -41,7 +41,7 @@ export function TableOfContents({
   return (
     <nav
       className={cn(
-        "fixed top-49 bottom-auto left-16 z-5 flex w-auto max-w-50 flex-col gap-3.5",
+        "fixed top-49 bottom-auto left-8 xl:left-16 z-5 hidden w-auto max-w-44 xl:max-w-50 flex-col gap-3.5 lg:flex",
         className
       )}
       aria-label="Table of contents"

@@ -103,9 +103,12 @@
   }
 
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
     @apply font-sans;
+  }
+
+  html[data-scroll-behavior="smooth"] {
+    scroll-behavior: smooth;
   }
 
   html,
