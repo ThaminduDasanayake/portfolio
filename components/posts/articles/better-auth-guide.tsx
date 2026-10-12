@@ -91,8 +91,8 @@ export function BetterAuthGuideArticle() {
         <span className="relative inline-block text-inherit">to top</span>
       </button>
 
-      <section className="relative min-h-186 w-full pt-20 sm:pt-28 md:pt-36 lg:pt-49 pb-10 sm:pb-16">
-        <div className="relative mx-auto flex min-h-0 w-full max-w-xl px-5 sm:px-8 lg:w-135 lg:max-w-none lg:px-0 flex-col items-start gap-9">
+      <section className="relative min-h-186 w-full pt-20 pb-10 sm:pt-28 sm:pb-16 md:pt-36 lg:pt-49">
+        <div className="relative mx-auto flex min-h-0 w-full max-w-xl flex-col items-start gap-9 px-5 sm:px-8 lg:w-135 lg:max-w-none lg:px-0">
           {/* Sticky Left TOC Sidebar */}
           <TableOfContents items={TOC_ITEMS} postIndex="001" />
 
@@ -392,7 +392,7 @@ export function UserAccountNav() {
           </article>
         </div>
       </section>
-      <footer className="relative mx-auto mt-20 lg:mt-25 mb-0 items-center justify-between pb-30">
+      <footer className="relative mx-auto mt-20 mb-0 items-center justify-between pb-30 lg:mt-25">
         <div className="fixed bottom-5 left-5 z-2 flex items-center gap-4">
           <button
             type="button"
