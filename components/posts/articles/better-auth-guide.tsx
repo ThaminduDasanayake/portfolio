@@ -1,10 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { ArrowUDownLeftIcon } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { TableOfContents, TocItem } from "@/components/table-of-contents";
 import { CodeBlock } from "@/components/code-block";
 import { ColorToggle } from "@/components/color-toggle";
+import { cn } from "@/lib/utils";
 
 const TOC_ITEMS: TocItem[] = [
   { id: "overview", title: "Overview" },
@@ -19,6 +22,33 @@ const TOC_ITEMS: TocItem[] = [
 
 export function BetterAuthGuideArticle() {
   const [isInverted, setIsInverted] = useState(false);
+  const [copiedLink, setCopiedLink] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 280);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleShare = async () => {
+    try {
+      if (typeof window !== "undefined") {
+        await navigator.clipboard.writeText(window.location.href);
+        setCopiedLink(true);
+        setTimeout(() => setCopiedLink(false), 2000);
+      }
+    } catch {
+      // Fallback
+    }
+  };
 
   return (
     <main
@@ -27,20 +57,47 @@ export function BetterAuthGuideArticle() {
       className="w-full min-w-80 overflow-x-clip"
     >
       <header className="relative z-4 h-11">
-        <div className="fixed top-5 right-5 flex items-center gap-4">
+        {/* Mobile / Tablet Back Button (TOC handles this on desktop) */}
+        <div className="fixed top-5 left-5 z-2 leading-3 lg:hidden">
+          <Link
+            href="/posts"
+            className="group/btn inline-flex items-center gap-1.5 font-mono text-xs tracking-tight opacity-70 transition-opacity hover:opacity-100"
+            title="Back to all posts"
+          >
+            <ArrowUDownLeftIcon className="transition-transform group-hover/btn:-translate-x-0.5" />
+            <span>001</span>
+          </Link>
+        </div>
+
+        <div className="fixed top-5 right-5 z-2 flex items-center gap-4">
           <ColorToggle
             isInverted={isInverted}
             onToggle={() => setIsInverted((prev) => !prev)}
           />
         </div>
       </header>
-      <section className="relative min-h-186 w-full pt-49 pb-28">
-        <div className="relative mx-auto flex min-h-0 w-135 max-w-[calc(100%-60px)] flex-col items-start gap-9">
+
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="back to top"
+        className={cn(
+          "fixed right-5 bottom-5 z-2 cursor-pointer text-right text-xs transition-opacity duration-400",
+          showScrollTop
+            ? "pointer-events-auto opacity-100"
+            : "pointer-events-none opacity-0"
+        )}
+      >
+        <span className="relative inline-block text-inherit">to top</span>
+      </button>
+
+      <section className="relative min-h-186 w-full pt-20 pb-10 sm:pt-28 sm:pb-16 md:pt-36 lg:pt-49">
+        <div className="relative mx-auto flex min-h-0 w-full max-w-xl flex-col items-start gap-9 px-5 sm:px-8 lg:w-135 lg:max-w-none lg:px-0">
           {/* Sticky Left TOC Sidebar */}
           <TableOfContents items={TOC_ITEMS} postIndex="001" />
 
           {/* Main Content Column */}
-          <article className="prose-custom max-w-2xl space-y-16">
+          <article className="prose-custom w-full max-w-2xl space-y-12 sm:space-y-16">
             <motion.header
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -335,7 +392,17 @@ export function UserAccountNav() {
           </article>
         </div>
       </section>
-      <footer></footer>
+      <footer className="relative mx-auto mt-20 mb-0 items-center justify-between pb-30 lg:mt-25">
+        <div className="fixed bottom-5 left-5 z-2 flex items-center gap-4">
+          <button
+            type="button"
+            onClick={handleShare}
+            className="cursor-pointer text-xs"
+          >
+            {copiedLink ? "link copied" : "share"}
+          </button>
+        </div>
+      </footer>
     </main>
   );
 }

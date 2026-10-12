@@ -5,7 +5,7 @@ import { PERSONAL_INFO } from "@/lib/data";
 
 export function Header() {
   return (
-    <header className="space-y-6">
+    <header className="w-full space-y-6">
       <div className="flex items-center justify-between">
         {/* Avatar */}
         <div className="border-border/80 relative h-14 w-14 overflow-hidden rounded-full border shadow-sm sm:h-16 sm:w-16">

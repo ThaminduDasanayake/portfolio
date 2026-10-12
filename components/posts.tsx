@@ -7,7 +7,7 @@ import AnimatedUnderline from "@/components/ui/animated-underline";
 
 export function Posts() {
   return (
-    <section className="space-y-3">
+    <section className="w-full space-y-3">
       <div>
         <h2 className="text-muted-foreground font-sans text-sm font-normal">
           Notes

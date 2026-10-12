@@ -140,22 +140,22 @@ export function PhosphorVsLucideArticle() {
   }, []);
 
   // Sync overscroll rubber-band bounce with the active background
-  useEffect(() => {
-    const bg = isInverted ? "var(--moss)" : "var(--sand)";
-    const fg = isInverted ? "var(--sand)" : "var(--moss)";
-
-    document.documentElement.style.backgroundColor = bg;
-    document.body.style.backgroundColor = bg;
-    document.documentElement.style.color = fg;
-    document.body.style.color = fg;
-
-    return () => {
-      document.documentElement.style.backgroundColor = "";
-      document.body.style.backgroundColor = "";
-      document.documentElement.style.color = "";
-      document.body.style.color = "";
-    };
-  }, [isInverted]);
+  // useEffect(() => {
+  //   const bg = isInverted ? "var(--moss)" : "var(--sand)";
+  //   const fg = isInverted ? "var(--sand)" : "var(--moss)";
+  //
+  //   document.documentElement.style.backgroundColor = bg;
+  //   document.body.style.backgroundColor = bg;
+  //   document.documentElement.style.color = fg;
+  //   document.body.style.color = fg;
+  //
+  //   return () => {
+  //     document.documentElement.style.backgroundColor = "";
+  //     document.body.style.backgroundColor = "";
+  //     document.documentElement.style.color = "";
+  //     document.body.style.color = "";
+  //   };
+  // }, [isInverted]);
 
   const handleShare = async () => {
     try {
@@ -185,12 +185,8 @@ export function PhosphorVsLucideArticle() {
   return (
     <main
       data-inverted={isInverted ? "true" : "false"}
-      className={cn(
-        "group relative min-h-svh",
-        isInverted
-          ? "bg-moss text-sand selection:bg-acid selection:text-moss"
-          : "bg-sand text-moss selection:bg-acid selection:text-moss"
-      )}
+      data-theme={isInverted ? "moss" : "sand"}
+      className="group relative min-h-svh"
     >
       <header className="relative z-4 h-11">
         <p className="fixed top-5 left-5 z-2 leading-3">
@@ -212,7 +208,7 @@ export function PhosphorVsLucideArticle() {
         </div>
       </header>
 
-      <p className="absolute top-5 left-1/2 w-3xl -translate-1/2 text-xs leading-3 whitespace-nowrap tabular-nums">
+      <p className="absolute top-5 left-1/2 hidden w-3xl -translate-x-1/2 text-xs leading-3 whitespace-nowrap tabular-nums lg:block">
         published <time dateTime="2026-09-26">26 Sep 2026</time>
       </p>
 
@@ -226,7 +222,7 @@ export function PhosphorVsLucideArticle() {
         radius={2.5}
         peakLength={52}
         restLength={12}
-        className="fixed top-1/2 right-6 z-20 -translate-y-1/2"
+        className="fixed top-1/2 right-6 z-20 hidden -translate-y-1/2 lg:block"
         cardClassName={cn(
           "backdrop-blur-md shadow-2xl",
           isInverted
@@ -249,14 +245,18 @@ export function PhosphorVsLucideArticle() {
         <span className="relative inline-block text-inherit">to top</span>
       </button>
 
-      <article className="relative z-1 mx-auto mt-[clamp(100px,22svh,240px)] mb-0 flex w-3xl flex-col gap-25 break-normal">
+      <article className="relative z-1 mx-auto mt-20 mb-0 flex w-full max-w-3xl flex-col gap-16 px-5 break-normal sm:mt-28 sm:gap-20 sm:px-8 lg:mt-[clamp(100px,22svh,240px)] lg:w-3xl lg:gap-25 lg:px-0">
         <div className="flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-          <span>6 min read</span>
+          <div className="flex items-center gap-2">
+            <span>6 min read</span>
+            <span className="opacity-40 lg:hidden">·</span>
+            <span className="tabular-nums lg:hidden">26 Sep 2026</span>
+          </div>
           <a
             href="https://phosphoricons.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group/link inline-flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 transition-colors hover:border-current/60"
+            className="group/link inline-flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 hover:border-current/60"
           >
             <Image
               src="/posts/phosphor-vs-lucide/phosphor-icon.png"
@@ -278,7 +278,7 @@ export function PhosphorVsLucideArticle() {
           Why I Pick Phosphor Over Lucide
         </h1>
 
-        <div className="flex items-center justify-center gap-6 py-2">
+        <div className="flex items-center justify-center gap-4 py-2 sm:gap-6">
           <div className="flex items-center gap-3 rounded-xl border border-current/15 bg-current/5 px-4 py-2.5">
             <Image
               src="/posts/phosphor-vs-lucide/lucide-icon.svg"
@@ -305,14 +305,14 @@ export function PhosphorVsLucideArticle() {
         </div>
 
         <div className="flex w-full flex-col gap-14">
-          <p className="text-lg leading-relaxed sm:text-xl">
+          <p className="leading-relaxed">
             If you look at most new web apps or landing pages built recently,
             you will notice they almost all look identical.{" "}
             <a
               href="https://lucide.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-acid underline underline-offset-4 transition-colors"
+              className="hover:text-acid underline underline-offset-4"
             >
               Lucide
             </a>{" "}
@@ -321,7 +321,7 @@ export function PhosphorVsLucideArticle() {
               href="https://phosphoricons.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-acid underline underline-offset-4 transition-colors"
+              className="hover:text-acid underline underline-offset-4"
             >
               Phosphor
             </a>{" "}
@@ -430,7 +430,7 @@ export function PhosphorVsLucideArticle() {
               </div>
 
               {/* Live Interactive Icon Showcase */}
-              <div className="grid grid-cols-4 gap-4 py-4 sm:grid-cols-6 sm:gap-6">
+              <div className="grid grid-cols-3 gap-3 py-4 min-[430px]:grid-cols-4 sm:grid-cols-6 sm:gap-6">
                 <div className="bg-acid text-moss flex flex-col items-center justify-center gap-2 rounded-lg p-3">
                   <SparkleIcon size={32} weight={selectedWeight} />
                   <span className="font-mono text-[10px]">Sparkle</span>
@@ -506,7 +506,7 @@ export function PhosphorVsLucideArticle() {
               the font weight you are using:
             </p>
 
-            <div className="space-y-3 rounded-lg border border-current/15 p-5 font-mono text-xs">
+            <div className="space-y-3 rounded-lg border border-current/15 p-3.5 font-mono text-xs sm:p-5">
               <div className="flex items-center justify-between border-b border-current/10 pb-2">
                 <span>Font Weight</span>
                 <span>Phosphor Weight</span>
@@ -654,7 +654,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://phosphoricons.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 hover:border-current/60"
               >
                 <Image
                   src="/posts/phosphor-vs-lucide/phosphor-icon.png"
@@ -675,7 +675,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://github.com/phosphor-icons/react"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 hover:border-current/60"
               >
                 <Image
                   src="/logos/github.svg"

@@ -4,16 +4,16 @@ import { EXPERIENCE_MILESTONES } from "@/lib/data";
 
 export function Experience() {
   return (
-    <section className="space-y-4">
+    <section className="w-full space-y-4">
       <h2 className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
         Journey & Experience
       </h2>
 
-      <div className="divide-border/40 divide-y">
+      <div className="divide-border/40 w-full divide-y">
         {EXPERIENCE_MILESTONES.map((item) => (
           <div
             key={item.role + item.year}
-            className="flex flex-col justify-between gap-1 py-3 sm:flex-row sm:items-baseline sm:gap-4"
+            className="flex items-baseline justify-between gap-4 py-3"
           >
             <div>
               <span className="text-foreground font-medium">{item.role}</span>
@@ -22,7 +22,7 @@ export function Experience() {
               </p>
             </div>
 
-            <span className="text-muted-foreground shrink-0 font-mono text-xs">
+            <span className="text-muted-foreground shrink-0 font-mono text-xs tabular-nums sm:text-sm">
               {item.year}
             </span>
           </div>
