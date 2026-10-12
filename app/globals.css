@@ -50,6 +50,20 @@
   --selection-fg: var(--daintree-green);
 }
 
+:root:has([data-theme="sand"]) {
+  --page-bg: var(--sand);
+  --page-fg: var(--moss);
+  --selection-bg: var(--acid);
+  --selection-fg: var(--moss);
+}
+
+:root:has([data-theme="moss"]) {
+  --page-bg: var(--moss);
+  --page-fg: var(--sand);
+  --selection-bg: var(--acid);
+  --selection-fg: var(--moss);
+}
+
 ::selection {
   background-color: var(--selection-bg);
   color: var(--selection-fg);

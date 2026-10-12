@@ -140,22 +140,22 @@ export function PhosphorVsLucideArticle() {
   }, []);
 
   // Sync overscroll rubber-band bounce with the active background
-  useEffect(() => {
-    const bg = isInverted ? "var(--moss)" : "var(--sand)";
-    const fg = isInverted ? "var(--sand)" : "var(--moss)";
-
-    document.documentElement.style.backgroundColor = bg;
-    document.body.style.backgroundColor = bg;
-    document.documentElement.style.color = fg;
-    document.body.style.color = fg;
-
-    return () => {
-      document.documentElement.style.backgroundColor = "";
-      document.body.style.backgroundColor = "";
-      document.documentElement.style.color = "";
-      document.body.style.color = "";
-    };
-  }, [isInverted]);
+  // useEffect(() => {
+  //   const bg = isInverted ? "var(--moss)" : "var(--sand)";
+  //   const fg = isInverted ? "var(--sand)" : "var(--moss)";
+  //
+  //   document.documentElement.style.backgroundColor = bg;
+  //   document.body.style.backgroundColor = bg;
+  //   document.documentElement.style.color = fg;
+  //   document.body.style.color = fg;
+  //
+  //   return () => {
+  //     document.documentElement.style.backgroundColor = "";
+  //     document.body.style.backgroundColor = "";
+  //     document.documentElement.style.color = "";
+  //     document.body.style.color = "";
+  //   };
+  // }, [isInverted]);
 
   const handleShare = async () => {
     try {
@@ -185,12 +185,8 @@ export function PhosphorVsLucideArticle() {
   return (
     <main
       data-inverted={isInverted ? "true" : "false"}
-      className={cn(
-        "group relative min-h-svh",
-        isInverted
-          ? "bg-moss text-sand selection:bg-acid selection:text-moss"
-          : "bg-sand text-moss selection:bg-acid selection:text-moss"
-      )}
+      data-theme={isInverted ? "moss" : "sand"}
+      className="group relative min-h-svh"
     >
       <header className="relative z-4 h-11">
         <p className="fixed top-5 left-5 z-2 leading-3">
@@ -260,7 +256,7 @@ export function PhosphorVsLucideArticle() {
             href="https://phosphoricons.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group/link inline-flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 transition-colors hover:border-current/60"
+            className="group/link inline-flex items-center gap-1.5 rounded-full border border-current/20 px-2.5 py-1 hover:border-current/60"
           >
             <Image
               src="/posts/phosphor-vs-lucide/phosphor-icon.png"
@@ -316,7 +312,7 @@ export function PhosphorVsLucideArticle() {
               href="https://lucide.dev"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-acid underline underline-offset-4 transition-colors"
+              className="hover:text-acid underline underline-offset-4"
             >
               Lucide
             </a>{" "}
@@ -325,7 +321,7 @@ export function PhosphorVsLucideArticle() {
               href="https://phosphoricons.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-acid underline underline-offset-4 transition-colors"
+              className="hover:text-acid underline underline-offset-4"
             >
               Phosphor
             </a>{" "}
@@ -658,7 +654,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://phosphoricons.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 hover:border-current/60"
               >
                 <Image
                   src="/posts/phosphor-vs-lucide/phosphor-icon.png"
@@ -679,7 +675,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 href="https://github.com/phosphor-icons/react"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 transition-colors hover:border-current/60"
+                className="group/res inline-flex items-center gap-2 rounded-lg border border-current/20 px-3 py-2 hover:border-current/60"
               >
                 <Image
                   src="/logos/github.svg"
