@@ -26,16 +26,51 @@ export function TableOfContents({
 
   useEffect(() => {
     const handleScroll = () => {
-      const current = items.findLast(
-        (item) =>
-          (document.getElementById(item.id)?.getBoundingClientRect().top ??
-            1) <= 160
-      );
-      if (current) setActiveId(current.id);
+      // 1. If at the bottom of the page, highlight the last section
+      const isAtBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 60;
+
+      if (isAtBottom) {
+        setActiveId(items[items.length - 1].id);
+        return;
+      }
+
+      // 2. Continuous 35% trigger point matching the Phosphor post standard
+      const sectionEls = items
+        .map((item) => document.getElementById(item.id))
+        .filter((el): el is HTMLElement => el !== null);
+
+      if (sectionEls.length === 0) return;
+
+      const triggerPoint = window.scrollY + window.innerHeight * 0.35;
+      const offsets = sectionEls.map((el) => {
+        const rect = el.getBoundingClientRect();
+        return window.scrollY + rect.top;
+      });
+
+      if (triggerPoint <= offsets[0]) {
+        setActiveId(items[0].id);
+      } else if (triggerPoint >= offsets[offsets.length - 1]) {
+        setActiveId(items[items.length - 1].id);
+      } else {
+        for (let i = 0; i < offsets.length - 1; i++) {
+          if (triggerPoint >= offsets[i] && triggerPoint < offsets[i + 1]) {
+            setActiveId(items[i].id);
+            break;
+          }
+        }
+      }
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
+
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, [items]);
 
   return (
