@@ -18,7 +18,7 @@ export default function HomePage() {
     <main className="bg-background text-foreground min-h-screen min-w-80 overflow-x-clip">
       <ScrollProgress className="bg-muted-foreground/60 fixed top-0 z-50 h-0.5" />
 
-      <div className="relative mx-auto flex w-135 flex-col items-start gap-8 px-0 pt-30 pb-28">
+      <div className="relative mx-auto flex w-full max-w-135 flex-col items-start gap-8 px-4 sm:px-6 lg:w-135 lg:px-0 pt-24 sm:pt-30 pb-28">
         <Header />
         <Separator />
         <Projects onOpenArchive={() => setIsArchiveOpen(true)} />
