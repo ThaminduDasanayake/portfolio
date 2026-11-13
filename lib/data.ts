@@ -54,8 +54,6 @@ export const PERSONAL_INFO = {
 export const SOCIAL_LINKS = [
   { name: "GitHub", url: "https://github.com/ThaminduDasanayake" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/thamindu-dasanayake/" },
-  { name: "Medium", url: "https://medium.com/@thamindudasanayake" },
-  { name: "Instagram", url: "https://www.instagram.com/thamindudasanayake/" },
 ];
 
 export const TECH_STACK: TechStackCategory[] = [
