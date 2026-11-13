@@ -10,7 +10,7 @@ interface MinimalProjectsProps {
 
 export function Projects({ onOpenArchive }: MinimalProjectsProps) {
   return (
-    <section className="mb-6 w-full gap-3.5">
+    <section className="w-full space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-muted-foreground font-mono text-xs tracking-wider uppercase">
           Projects

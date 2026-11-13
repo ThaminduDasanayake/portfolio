@@ -121,6 +121,16 @@ export const SIMPLE_POSTS: SimplePost[] = [
 
 export const SELECTED_PROJECTS: Project[] = [
   {
+    title: "Chromaline",
+    timeline: "October 2026",
+    category: "UI Component Library",
+    tags: ["Next.js", "UI", "Components"],
+    demoUrl: "https://chromaline.vercel.app/",
+    repoUrl: "https://github.com/ThaminduDasanayake/chromaline",
+    // image: "/projects/stock-app.webp",
+    type: "image",
+  },
+  {
     title: "Syntax Stash",
     timeline: "May 2026",
     category: "Full-Stack SaaS",
